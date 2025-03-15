@@ -50,6 +50,13 @@ I have plans to add more information on color combinations in Spanish art. But t
 
 ----
 
+## Japan icons
+
+
+The icons were drawn by Spacepixel creative. Take a look at [Figma](https://www.figma.com/community/file/1380163773397482263)
+
+----
+
 ## Sources
 
 
