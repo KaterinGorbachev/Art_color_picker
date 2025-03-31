@@ -1,4 +1,4 @@
-### Features 
+# Features 
 ----
 
 ## Home Page
@@ -19,29 +19,40 @@ The Home Page serves as the main entry point to the Art Color Picker web applica
 
 Each Page contains a header menu with a search bar, drop-down menu and multiple navigation links. 
 
-Multiple navigation links: 
 
-    - ART COLOR PICKER: A clickable text link that redirects users back to the Home Page.
+### Multiple navigation links: 
 
-    - PALLETES: A link to the Palettes Page, where color combinations are displayed in an organized manner, following the structure of a reference book.
 
-    - RANDOM: A link that generates three random palettes. Each click on the "Random" link generates a new set of palettes:
+- ART COLOR PICKER: A clickable text link that redirects users back to the Home Page.
+
+- PALLETES: A link to the Palettes Page, where color combinations are displayed in an organized manner, following the structure of a reference book.
+
+- RANDOM: A link that generates three random palettes. Each click on the "Random" link generates a new set of palettes:
 
         - One palette with 2 colors
-
-        -   One palette with 3 colors
-
+        - One palette with 3 colors
         - One palette with 4 colors
 
-    - COLORS: A link to the Colors Page, where colors are categorized by groups.
+- COLORS: A link to the Colors Page, where colors are categorized by groups.
+  
 
-- Search Bar: The search bar allows users to enter a maximum of 9 characters, including only the "#" symbol, numbers (0-9), letters (a-z, A-Z). Any other characters are not accepted. 
+
+### Search Bar
+
+
+The search bar allows users to enter a maximum of 9 characters, including only the "#" symbol, numbers (0-9), letters (a-z, A-Z). Any other characters are not accepted. 
 
 The program processes the input by removing the "#" symbol and converting it into an RGB format to: 
-    - Retrieve matching colors from the database
-    - Suggest similar colors if the exact match is unavailable, allowing users to select from existing color options in the database.
 
-- Drop-down Menu: a drop-down menu provides additional navigation options and user preferences.
+        - Retrieve matching colors from the database
+        - Suggest similar colors if the exact match is unavailable, allowing users to select from existing color options in the database.
+
+
+
+### Drop-down Menu
+
+
+A drop-down menu provides additional navigation options and user preferences.
 
 ----
 
