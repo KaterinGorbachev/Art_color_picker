@@ -312,19 +312,19 @@ li{
 
 .enlaces{ 
     display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+    
     list-style: none;
     
     position: absolute;
     top: 10vh;
     right: 0;
-    padding: 4rem 2rem;
+    padding: 2rem 2rem;
     background-color: white;
     box-shadow: 0 10px 10px -8px #4F8FE6;
     max-height: 0;
+    
     overflow: hidden;
+    
     
     
 }
@@ -351,10 +351,13 @@ li{
     color: grey;
     text-decoration: none; 
     font-weight: 200;
-    font-size: 24px;
+    font-size: 16px;
+
     
 
 }
+
+
 
 .enlaces li:hover a{ 
     color: #A90636
@@ -370,10 +373,14 @@ li{
 
 
 .enlaces.mostrar{ 
-    display: block;
-    max-height: 600px; 
-    width: 400px;
+    display: flex;
+    max-height: 300px; 
+    width: 200px;
     transition: max-height 0.4s ease-in-out;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 
@@ -536,7 +543,7 @@ li{
 
 /*--- Colors page main content style starts here ---*/
 .colors_box{ 
-    padding-top: 3rem;
+    padding: 3rem 3rem;
     display: grid;
     grid-gap: 2rem;
     
@@ -681,7 +688,7 @@ li{
 
 
 
-
+/*Styles for PC*/
 
 @media only  screen and (min-width:730px){
 
@@ -834,33 +841,21 @@ li{
         
         
     }
-
-    
-    /*
-    .menu{ 
-        top: 13vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-   
-    .menu ul li a{ 
-        font-size: 24px;
+    .enlaces li a{
+        color: grey;
+        text-decoration: none; 
         font-weight: 200;
-        text-align: start;
-        letter-spacing: 1.5pt;
-        
+        font-size: 24px;
+
         
 
     }
-
-    .exit i{ 
-        font-size: 22px;
+    .enlaces.mostrar{ 
+        width: 400px;
+        max-height: 800px;
+        gap: 10px;
+    }
         
-    }*/
-
-
     #page_footer{ 
         
         display: none;
@@ -1054,8 +1049,12 @@ li{
     .colors_box{ 
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         grid-template-rows: repeat(auto-fit, 300px, 1fr);
-        padding: 4rem;
-        gap: 2rem;
+        
+        grid-gap: 2rem;
+        display: inline-grid;
+        direction: column;
+        max-width: 100vw;
+        padding: 6rem 3rem;
 
     }
 
