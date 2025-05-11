@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="shortcut icon" href="../images/sakura_red.svg" type="image/x-icon">
 
+    <script src="../scripts/script.js" defer></script>
+
 
 
 
@@ -29,20 +31,20 @@
 <body>
     <section id="page">
         <header id="page_menu">
-            <div class="i_box mobile" >
-                <a href="../pages/home.html"><img src="../images/home.svg" alt="Home"></a>
+            <div class="i_box mobile" id="home_mobile">
+                <a href="../pages/home.html"><img src="../images/home.svg" alt="Home" id="home_button"></a>
             </div>
-            <div class="text_box pc" >
-                <a href="../pages/home.html"><h2>ART COLOR PICKER</h2></a>
+            <div class="text_box pc" id="home_pc">
+                <a href="../pages/home.html"><h2 id="home_link">ART COLOR PICKER</h2></a>
             </div>
             
             <div id="menu_pc_panel" class="pc">
                 <nav>
                     <li class="grid_menu">
-                        <a href="./palletes.html"><h3>PALLETES</h3></a>
+                        <a href="./palletes.html"><h3 id="palletes_link">PALLETES</h3></a>
                     </li>
-                    <li class="grid_menu"><a href="#"><h3>RANDOM</h3></a></li>
-                    <li class="grid_menu"><a href="../pages/colors.html"><h3>COLORS</h3></a></li>
+                    <li class="grid_menu"><a href="./palletes.html"><h3 id="random_link">RANDOM</h3></a></li>
+                    <li class="grid_menu"><a href="./colors.html"><h3 id="color_picker">COLORS</h3></a></li>
                 </nav>
                 
                 
@@ -50,7 +52,7 @@
             </div>
             <div id="search">
                 <div id="search_color">
-                    <input type="text" placeholder="Search color" maxlength="9" >
+                    <input type="text" placeholder="Search color" maxlength="9" id="searcher">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 
@@ -59,55 +61,32 @@
             </div>
 
             <div class="i_box mobile"> <!--link to the page with colors-->
-                <a href="../pages/colors.html"><img src="../images/brush.svg" alt="Colors"></a>
+                <a href="../pages/colors.html"><img src="../images/brush.svg" alt="Colors" id="color_btn"></a>
             </div>
             
+
+            <nav class="dropDown">
+                <!--<input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu_icon"></label> the old version--> 
+                <i id='burger' class="fa-solid fa-ellipsis menu_icon"></i>           
+             
+                <ul class="enlaces animate__animated animate__fadeInRight" id="enlaces">
+                    <li><a href="../pages/colors.html">COLORS</a></li>
+                    <li><a href="./palletes.html">PALETTES</a></li>
+                    <li><a href="./collection.html">COLLECTION</a></li>   
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="./termsofservice.html">SERVICE</a></li>
+                    <li><a href="./privacypolicy.html">PRIVACY</a></li>
+                    <!--<li><label for="menu-toggle" class="exit"><i class="fa-solid fa-xmark exit"></i></label></li>-->
+
+                </ul>
+
+            </nav>
             
-            <div class = "header_menu_dropdown">
-                <input type="checkbox" id="menu-toggle" class="menu_icon">
-                <label for="menu-toggle" class="menu_icon"><i class="fa-solid fa-ellipsis menu_icon"></i></label>
-
-                
-                
-                <nav class="menu animate__animated animate__fadeInRight">
-                    <ul>
-                        <li><a href="../pages/colors.html">COLORS</a></li>
-                        <li><a href="./palletes.html">PALETTES</a></li>
-                        
-                        <li><a href="./collection.html">COLLECTION</a></li>   
-                                         
-                        
-                        
-
-                        <li><a href="#">ABOUT</a></li>
-                        
-
-                        
-                        <li><a href="./termsofservice.html">SERVICE</a></li>
-                        
-                        <li><a href="./privacypolicy.html">PRIVACY</a></li>
-
-                        <li><label for="menu-toggle" class="exit"><i class="fa-solid fa-xmark exit"></i></label></li>
-
-                        
-
-                        
-                        
-
-                        
-                                                               
-                    </ul>
-
-
-
-
-                </nav>
-                    
-                
-                
-
-            </div>
         </header>
+
+
+
 
         <main id="main_pages">
             <div class="about_first_part">
