@@ -472,6 +472,13 @@ li{
     
 }
 
+#main_pages h1{ 
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+    font-size: 22px;
+    color: #A90636;
+    padding-left: 1rem;
+}
 
 
 #principle_img_box{ 
@@ -654,6 +661,17 @@ li{
     gap: 0.3rem;
 }
 
+.share-icon, .safe-icon {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.share-icon:hover {
+    transform: scale(1.1);
+}
+
+.safe-icon:hover{
+    transform: scale(1.1);
+}
 
 
 /*--- Palletes page main content style ends here ---*/

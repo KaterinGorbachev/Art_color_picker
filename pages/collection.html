@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="../scripts/script.js" defer></script>
+    <script src="../scripts/collection.js" defer></script>
 
     <!--Font Reggae One Static - google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +45,7 @@
                         <a href="./palletes.html"><h3>PALLETES</h3></a>
                     </li>
                     <li class="grid_menu"><a href="#"><h3>RANDOM</h3></a></li>
-                    <li class="grid_menu"><a href="#"><h3>COLORS</h3></a></li>
+                    <li class="grid_menu"><a href="../pages/colors.html"><h3>COLORS</h3></a></li>
                 </nav>
                 
                 
@@ -61,150 +62,37 @@
             </div>
 
             <div class="i_box mobile"> <!--link to the page with colors-->
-                <a href="#"><img src="../images/brush.svg" alt="Colors"></a>
+                <a href="../pages/colors.html"><img src="../images/brush.svg" alt="Colors"></a>
             </div>
+
+             <nav class="dropDown">
+                <!--<input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu_icon"></label> the old version--> 
+                <i id='burger' class="fa-solid fa-ellipsis menu_icon"></i>           
+             
+                <ul class="enlaces animate__animated animate__fadeInRight" id="enlaces">
+                    <li><a href="../pages/colors.html">COLORS</a></li>
+                    <li><a href="./palletes.html">PALETTES</a></li>
+                    <li><a href="./collection.html">COLLECTION</a></li>   
+                    <li><a href="./about.html">ABOUT</a></li>
+                    <li><a href="./termsofservice.html">SERVICE</a></li>
+                    <li><a href="./privacypolicy.html">PRIVACY</a></li>
+                    <!--<li><label for="menu-toggle" class="exit"><i class="fa-solid fa-xmark exit"></i></label></li>-->
+
+                </ul>
+
+            </nav>
             
             
-            <div class = "header_menu_dropdown">
-                <input type="checkbox" id="menu-toggle" class="menu_icon">
-                <label for="menu-toggle" class="menu_icon"><i class="fa-solid fa-ellipsis menu_icon"></i></label>
-
-                
-                
-                <nav class="menu animate__animated animate__fadeInRight">
-                    <ul>
-                        <li><a href="./colors.html">COLORS</a></li>
-                        <li><a href="./palletes.html">PALETTES</a></li>
-                        
-                        <li><a href="#">COLLECTION</a></li>   
-                                         
-                        
-                        
-
-                        <li><a href="./about.html">ABOUT</a></li>
-                        
-
-                        
-                        <li><a href="./termsofservice.html">SERVICE</a></li>
-                        
-                        <li><a href="./privacypolicy.html">PRIVACY</a></li>
-
-                        <li><label for="menu-toggle" class="exit"><i class="fa-solid fa-xmark exit"></i></label></li>
-
-                        
-
-                        
-                        
-
-                        
-                                                               
-                    </ul>
-
-
-
-
-                </nav>
-                    
-                
-                
-
-            </div>
+            
         </header>
 
         <main id="main_pages">
-            <div class="colors_box colors_number_2">
-                <div class="color_box position1">
-                    <div class="color"></div>
-                    <div class="color_buttons">
-                        <i class="fa-regular fa-heart"></i>
-                        <img src="../images/origami.svg" alt="Share">
-                    </div>
-                </div>
-                <div class="color_box position2">
-                    <div class="color"></div>
-                    <div class="color_buttons">
-                        <i class="fa-regular fa-heart"></i>
-                        <img src="../images/origami.svg" alt="Share">
-                    </div>
-                </div>
-                           
+            <h1>YOUR COLLECTION</h1>
+            <div id="collection_box" class="colors_box">
                 
-                
-                
-
-                
-
             </div>
-
-            <div class="colors_box colors_number_3">
-                <div class="color_box position1">
-                    <div class="color"></div>
-                    <div class="color_buttons">
-                        <i class="fa-regular fa-heart"></i>
-                        <img src="../images/origami.svg" alt="Share">
-                    </div>
-                </div>
-                <div class="color_box position2">
-                    <div class="color"></div>
-                    <div class="color_buttons">
-                        <i class="fa-regular fa-heart"></i>
-                        <img src="../images/origami.svg" alt="Share">
-                    </div>
-                </div>
-                <div class="color_box position3">
-                    <div class="color"></div>
-                    <div class="color_buttons">
-                        <i class="fa-regular fa-heart"></i>
-                        <img src="../images/origami.svg" alt="Share">
-                    </div>
-                </div>
-                
-                
-                
-                
-                
-
-                
-
-            </div>
-
-            <div class="colors_box colors_number_4">
-                <div class="color_box position1">
-                    <div class="color"></div>
-                    <div class="color_buttons">
-                        <i class="fa-regular fa-heart"></i>
-                        <img src="../images/origami.svg" alt="Share">
-                    </div>
-                </div>
-                <div class="color_box position2">
-                    <div class="color"></div>
-                    <div class="color_buttons">
-                        <i class="fa-regular fa-heart"></i>
-                        <img src="../images/origami.svg" alt="Share">
-                    </div>
-                </div>
-                <div class="color_box position3">
-                    <div class="color"></div>
-                    <div class="color_buttons">
-                        <i class="fa-regular fa-heart"></i>
-                        <img src="../images/origami.svg" alt="Share">
-                    </div>
-                </div>
-                <div class="color_box position4">
-                    <div class="color"></div>
-                    <div class="color_buttons">
-                        <i class="fa-regular fa-heart"></i>
-                        <img src="../images/origami.svg" alt="Share">
-                    </div>
-                </div>
-                
-                
-                
-                
-
-                
-
-            </div>
+            
             
         </main>
 
