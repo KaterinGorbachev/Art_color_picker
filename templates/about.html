@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Font Reggae One Static - google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nanum+Brush+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Reggae+One&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--animate -->
+    <link     rel="stylesheet"     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"   />
+
+
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/sakura_red.svg') }}" type="image/x-icon">
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/script.js')}}" defer></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/collection.js')}}" defer></script>
+
+
+
+
+
+    <title>About</title>
+</head>
+<body>
+    <section id="page">
+        <header id="page_menu">
+            <div class="i_box mobile" >
+                <img id="home_button" src="{{ url_for('static', filename='images/home.svg')}}" alt="Home">
+            </div>
+            <div class="text_box pc" >
+                <a href="#" id="home_link"><h2>ART COLOR PICKER</h2></a>
+            </div>
+            
+            <div id="menu_pc_panel" class="pc">
+                <nav>
+                    <li class="grid_menu">
+                        <a href="#" id="palletes_link_pc"><h3>PALETTES</h3></a>
+                    </li>
+                    <li class="grid_menu"><a href="#" id="random_link_pc"><h3>RANDOM</h3></a></li>
+                    <li class="grid_menu"><a href="#" id="color_picker_pc"><h3>COLORS</h3></a></li>
+                </nav>
+                
+                
+                
+            </div>
+            <div id="search">
+                <div id="search_color">
+                    <input type="text" placeholder="Search color" maxlength="9" >
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                
+                <span class="hint">Enter RGB color number like #A8006D</span>
+                
+            </div>
+
+            
+
+            <nav class="dropDown">
+                <!--<input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu_icon"></label> the old version--> 
+                <i id='burger' class="fa-solid fa-ellipsis menu_icon"></i>           
+             
+                <ul class="enlaces animate__animated animate__fadeInRight" id="enlaces">
+                    <li><a href="#" id="color_picker">COLORS</a></li>
+                    <li><a href="#" id="all_palettes">PALETTES</a></li>
+                    <li><a href="#" id="collection">COLLECTION</a></li>   
+                    <li><a href="#" id="about">ABOUT</a></li>
+                    <li><a href="#" id="service">SERVICE</a></li>
+                    <li><a href="#" id="privacy">PRIVACY</a></li>
+                    <!--<li><label for="menu-toggle" class="exit"><i class="fa-solid fa-xmark exit"></i></label></li>-->
+
+                </ul>
+
+            </nav>
+            
+            
+            
+        </header>
+
+
+
+
+        <main id="main_pages">
+            <div class="about_first_part">
+
+
+                <div id="principle_img_box">
+                    <img src="{{url_for('static', filename='/images/gateofhell_sanzo_wada.jpg') }}" alt="picture from movie Jigokumon (Gate of Hell)">
+                    
+    
+                </div>
+                <div class="about_story japan_colors">
+                    <h2>Japan colors</h2>
+                    <p>The collection of color combinations was based on the Sanzo Wada books "A Dictionary of Color Combinations" and "A Dictionary of Color Combinations vol.2", published by SEIGENSHA. The references are from anime by Studio Ghibli, western cinema about Asia, kimono, and photos from my trip to Japan in 2025. </p>
+                    <br>
+                </div>
+
+                
+
+            </div>
+            
+
+            <div class="about_story">
+                
+                <h3>About Sanzo Wada</h3>
+                <p>Sanzo Wada (1883-1967) was born in Hyuogo, and began to study under Seiki Kuroda with the aim to become a painter in 1899. In 1901, he enrolled in the Tokyo Fine Arts School's Western painting program, from which graduated in 1904. After completing "Bokujo no banki" (1905), he became more widely known when his painting "Nampu" received the highest award in the Western painting category at the first Ministry of Education art exhibition (Bunten) in 1907. Since 1909 had started his European period. Before his return to Japan in 1915 he traveled across Asia and visited Java, Burma and India. He assumed office as a professor at the Tokyo Fine Arts School's Department of Design in 1937, when he also published Shikimei-cho, a collection of Japanese traditional colors and names. In 1954 he received an Academy Award for Costume Design for the movie "Jigokumon (Gate of Hell)", in 1955 this film was awarded the Palme d'Or grand prize at the Cannes Film Festival.</p>
+                <br>
+                
+                <h3>Principle of color combination and components</h3>
+                <p>Sanzo Wada basically distinguishes between combinations of similar, and those of contrasting colors/tones, which he explains by further deciding each type into five patterns. Components were adopted from the old European concepts of similar and contrasting colors. The definition of colors is already based on their hue, brightness (shades) and saturation (chromatically), as well as combinations of tones of different brightness and saturation. Wada considers the possibility of using this principle subjectively, based on personal taste, combining differently sized areas of different colors.        
+                </p>
+                <br>
+                <h3>Color combinations in the future art</h3>
+                <p>
+                    The great work made by Sanzo Wada in the exploration of colors influenced modern design, cinema and arts. Only take a look at the following gallery and you easily guess the country. 
+                </p>
+                <br>
+
+
+            </div>
+
+            <div class="galery_box">
+                <div class="grid-photo-img1">
+                    <img src="{{ url_for('static', filename='images/wave_personal (1).jpg') }}" alt="wave">
+                    <p>Pacific ocean wave. Around 1970. Personal archive</p>
+
+                </div>
+                
+                
+                
+                <div class="grid-photo-img2">
+                    <img src="{{ url_for('static', filename='/images/kanagawa_01.png') }}" alt="The Great Wave off the Coast of Kanagawa">
+                    <p>The Great Wave off the Coast of Kanagawa. 1831. Katsushika Hokusai</p>
+                </div>
+
+                <div class="grid-photo-img3">
+                    <img src="{{url_for('static', filename='/images/kimono.png') }}" alt="kimono">
+                    <p>Street photo</p>
+                </div>
+
+                <div class="grid-photo-img4">
+                    <img src="{{url_for('static', filename='/images/japon1970personal.png') }}" alt="Japon">
+                    <p>Japon. Around 1970. Personal archive</p>
+
+                    
+                </div>
+                
+                <div class="grid-photo-img5">
+                    <img src="{{url_for('static', filename='/images/dolls.png') }}" alt="Dolls">
+                    <p>Dolls. 2002. Takeshi Kitano</p>
+                </div>
+
+                
+
+                <div class="grid-photo-img6">
+                    <img src="{{url_for('static', filename='/images/totoro.jpg') }}" alt="Totoro bus stop">
+                    <p>My Neighbor Totoro. 1988. Hayao Miyazaki </p>
+                </div>
+
+                <div class="grid-photo-img7">
+                    <img src="{{url_for('static', filename='/images/vereshagin.png') }}" alt="Shintoistsky temple in Nikko Around 1904 Vasily Vereshchagin">
+                    <p>Shintoistsky temple in Nikko. Around 1904. Vasily Vereshchagin</p>
+                </div>
+
+                <div class="grid-photo-img8">
+                    <img src="{{url_for('static', filename='/images/vasabi.png') }}" alt="Wasabi">
+                    <p>Wasabi. 2001. Luc Besson</p>
+                </div>
+
+
+            </div>
+        </main>
+
+        <div class="pc_footer pc">
+            
+            <h1>ART COLOR PICKER</h1>
+            <hr>
+            <div id="info">
+                <div class="footer_info">
+                    <ul>
+                        <li><h2>Contacts</h3></li>
+                        <li><a href="#" id="linkedin">Linkedin</a></li>
+                        <li><a href="#" id="git">GitHub</a></li>
+    
+                    </ul>
+                        
+    
+    
+                </div>
+                <div class="footer_info">
+                    <ul>
+                        <li><h2>Policy</h3></li>
+                        <li>
+                            <a href="../pages/privacypolicy.html" id="privacy_pc">Privacy policy</a>
+                        </li>
+                        <li><a href="../pages/termsofservice.html" id="service_pc">Terms of service</a></li>
+                    </ul>
+                        
+                            
+                            
+    
+                        
+    
+                </div>
+    
+
+            </div>
+                
+            
+        </div>
+
+        <footer id="page_footer" >
+            <nav class="mobile mobile_footer">
+                <ul class="mobile footer_img">
+                    <li>
+                        <div class="i_box mobile">
+                            <img src="{{ url_for('static', filename='images/stone.svg')}}" alt="Palettes" id="palettes_btn">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="i_box mobile"> <!--link to the page with colors-->
+                            <img src="{{ url_for('static', filename='images/brush.svg')}}" alt="Colors" id="color_btn">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="i_box mobile">
+                            <img src="{{ url_for('static', filename='images/carp.svg')}}" alt="Random" id="random">
+                        </div>
+                        
+                    </li>
+                    
+
+                </ul>
+                
+                
+
+            </nav>
+            
+            
+            
+
+            
+
+        </footer>
+
+
+
+    </section>
+
+    
+</body>
+</html>

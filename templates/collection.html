@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/script.js')}}" defer></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/copy_color.js')}}" defer></script>
+    
+    
+   
+    
+    <!--Font Reggae One Static - google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nanum+Brush+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Reggae+One&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--animate -->
+    <link     rel="stylesheet"     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"   />
+
+
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/sakura_red.svg') }}" type="image/x-icon">
+
+
+
+
+    <title>Palettes</title>
+</head>
+<body>
+    <section id="page">
+        <header id="page_menu">
+            <div class="i_box mobile" >
+                <img id="home_button" src="{{ url_for('static', filename='images/home.svg')}}" alt="Home">
+            </div>
+            <div class="text_box pc" >
+                <a href="#" id="home_link"><h2>ART COLOR PICKER</h2></a>
+            </div>
+            
+            <div id="menu_pc_panel" class="pc">
+                <nav>
+                    <li class="grid_menu">
+                        <a href="#" id="palletes_link_pc"><h3>PALETTES</h3></a>
+                    </li>
+                    <li class="grid_menu"><a href="#" id="random_link_pc"><h3>RANDOM</h3></a></li>
+                    <li class="grid_menu"><a href="#" id="color_picker_pc"><h3>COLORS</h3></a></li>
+                </nav>
+                
+                
+                
+            </div>
+            <div id="search">
+                <div id="search_color">
+                    <input type="text" placeholder="Search color" maxlength="9" >
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                
+                <span class="hint">Enter RGB color number like #A8006D</span>
+                
+            </div>
+
+            
+
+            <nav class="dropDown">
+                <!--<input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu_icon"></label> the old version--> 
+                <i id='burger' class="fa-solid fa-ellipsis menu_icon"></i>           
+             
+                <ul class="enlaces animate__animated animate__fadeInRight" id="enlaces">
+                    <li><a href="#" id="color_picker">COLORS</a></li>
+                    <li><a href="#" id="all_palettes">PALETTES</a></li>
+                    <li><a href="#" id="collection">COLLECTION</a></li>   
+                    <li><a href="#" id="about">ABOUT</a></li>
+                    <li><a href="#" id="service">SERVICE</a></li>
+                    <li><a href="#" id="privacy">PRIVACY</a></li>
+                    <!--<li><label for="menu-toggle" class="exit"><i class="fa-solid fa-xmark exit"></i></label></li>-->
+
+                </ul>
+
+            </nav>
+            
+            
+            
+        </header>
+
+        <main id="main_pages">
+            <h2>Your collection</h2>
+            
+            
+            <div class="box"> 
+                {% for number, colors in palettes.items() %}
+
+                <div class="palette_grp">
+                    <div class="pallete_box">
+
+                        {% for color in colors %}
+                        <div class="color_info">
+                            <div  style="background-color: {{ color['rgb'] }}"></div>
+                            <button id="{{ color['rgb'] }}" class="copy_color">{{ color['rgb'].upper() }}</button>
+                            <p>{{ color['name'] }}</p>
+                            
+                        
+                        
+                            
+                        
+                        </div>
+
+                        
+                        {% endfor %}
+
+                                    
+                    
+                    </div>
+                    
+                
+
+
+                </div>
+
+            
+                
+                
+             
+            {% endfor %}
+
+
+
+            </div>
+            
+            
+        </main>
+
+        <div class="pc_footer pc">
+            
+            <h1>ART COLOR PICKER</h1>
+            <hr>
+            <div id="info">
+                <div class="footer_info">
+                    <ul>
+                        <li><h2>Contacts</h3></li>
+                        <li><a href="#">Linkedin</a></li>
+                        <li><a href="#">GitHub</a></li>
+    
+                    </ul>
+                        
+    
+    
+                </div>
+                <div class="footer_info">
+                    <ul>
+                        <li><h2>Policy</h3></li>
+                        <li>
+                            <a href="../pages/privacypolicy.html">Privacy policy</a>
+                        </li>
+                        <li><a href="../pages/termsofservice.html">Terms of service</a></li>
+                    </ul>
+                        
+                            
+                            
+    
+                        
+    
+                </div>
+    
+
+            </div>
+                
+            
+        </div>
+
+        <footer id="page_footer" >
+            <nav class="mobile mobile_footer">
+                <ul class="mobile footer_img">
+                    <li>
+                        <div class="i_box mobile">
+                            <img src="{{ url_for('static', filename='images/stone.svg')}}" alt="Palletes">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="i_box mobile"> <!--link to the page with colors-->
+                            <img src="{{ url_for('static', filename='images/brush.svg')}}" alt="Colors">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="i_box mobile">
+                            <img src="{{ url_for('static', filename='images/carp.svg')}}" alt="Random" id="random">
+                        </div>
+                        
+                    </li>
+                    
+
+                </ul>
+                
+                
+
+            </nav>
+            
+            
+            
+
+            
+
+        </footer>
+
+
+
+
+
+    </section>
+    
+</body>
+</html>
