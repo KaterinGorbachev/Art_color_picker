@@ -6,6 +6,9 @@
 
     <script type="text/javascript" src="{{ url_for('static', filename='scripts/script.js')}}" defer></script>
     <script type="text/javascript" src="{{ url_for('static', filename='scripts/copy_color.js')}}" defer></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/collect.js')}}" defer></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/search_color.js')}}" defer></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/post_collection.js')}}" defer></script>
     
     
     
@@ -54,11 +57,11 @@
             </div>
             <div id="search">
                 <div id="search_color">
-                    <input type="text" placeholder="Search color" maxlength="9" >
+                    <input type="text" placeholder="Search color" maxlength="6" id="user_color">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 
-                <span class="hint">Enter RGB color number like #A8006D</span>
+                <span class="hint">Enter RGB color number like A8006D</span>
                 
             </div>
 

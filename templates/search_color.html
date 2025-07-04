@@ -5,14 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script type="text/javascript" src="{{ url_for('static', filename='scripts/script.js')}}" defer></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='scripts/collection.js')}}" defer></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='scripts/copy_color.js')}}" defer></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='scripts/search_color.js')}}" defer></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/colors.js')}}" defer></script>
     <script type="text/javascript" src="{{ url_for('static', filename='scripts/post_collection.js')}}" defer></script>
-    
-    
-   
-    
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/search_color.js')}}" defer></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/copy_color.js')}}" defer></script>
+
     <!--Font Reggae One Static - google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,8 +28,7 @@
 
 
 
-
-    <title>Palettes</title>
+    <title>Search color</title>
 </head>
 <body>
     <section id="page">
@@ -91,51 +87,37 @@
         </header>
 
         <main id="main_pages">
-            <h2>Your collection</h2>
-            <span id="col_empty"></span>
-            
-            
-            <div class="box"> 
-                {% for number, colors in palettes.items() %}
-
-                <div class="palette_grp">
-                    
-                    <div class="pallete_box">
-
-                        {% for color in colors %}
-                        <div class="color_info">
-                            <div  style="background-color: {{ color['rgb'] }}"></div>
-                            <button id="{{ color['rgb'] }}" class="copy_color">{{ color['rgb'].upper() }}</button>
-                            <p>{{ color['name'] }}</p>
-                            
-                        
-                        
-                            
-                        
-                        </div>
-
-                        
-                        {% endfor %}
+            <h2>Your search colors</h2>
 
                                     
-                    
+            <div class="colors_box" >
+                {% for item in all_data %}
+                <div class="color_box">
+                    <div class="color" id="{{ item['name'] }}" style="background-color: {{ item['rgb'] }}">
+                        
                     </div>
-                    <div class="color_buttons">
-                        <i class="fa-regular fa-trash-can delete" id="{{ number }}" ></i>
-                    </div>
+                    <button class="copy_color">{{ item['rgb'] }}</button>
+                    <p>{{ item['name'] }}</p>
                     
+                </div>
+                
                 
 
-
-                </div>
-
-            
-            {% endfor %}
-
-
-
+                {% endfor %}
+             
             </div>
+           
+                        
             
+
+                
+                
+                
+
+                
+             
+            </div>
+           
             
         </main>
 
@@ -147,8 +129,8 @@
                 <div class="footer_info">
                     <ul>
                         <li><h2>Contacts</h3></li>
-                        <li><a href="#">Linkedin</a></li>
-                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#" id="linkedin">Linkedin</a></li>
+                        <li><a href="#" id="git">GitHub</a></li>
     
                     </ul>
                         
@@ -159,9 +141,9 @@
                     <ul>
                         <li><h2>Policy</h3></li>
                         <li>
-                            <a href="../pages/privacypolicy.html">Privacy policy</a>
+                            <a href="../pages/privacypolicy.html" id="privacy_pc">Privacy policy</a>
                         </li>
-                        <li><a href="../pages/termsofservice.html">Terms of service</a></li>
+                        <li><a href="../pages/termsofservice.html" id="service_pc">Terms of service</a></li>
                     </ul>
                         
                             
@@ -182,12 +164,12 @@
                 <ul class="mobile footer_img">
                     <li>
                         <div class="i_box mobile">
-                            <img src="{{ url_for('static', filename='images/stone.svg')}}" alt="Palletes">
+                            <img src="{{ url_for('static', filename='images/stone.svg')}}" alt="Palettes" id="palettes_btn">
                         </div>
                     </li>
                     <li>
                         <div class="i_box mobile"> <!--link to the page with colors-->
-                            <img src="{{ url_for('static', filename='images/brush.svg')}}" alt="Colors">
+                            <img src="{{ url_for('static', filename='images/brush.svg')}}" alt="Colors" id="color_btn">
                         </div>
                     </li>
                     <li>

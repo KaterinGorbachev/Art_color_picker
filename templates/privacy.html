@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/sakura_red.svg') }}" type="image/x-icon">
     <script type="text/javascript" src="{{ url_for('static', filename='scripts/script.js')}}" defer></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='scripts/collection.js')}}" defer></script>
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/search_color.js')}}" defer></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/post_collection.js')}}" defer></script>
 
 
 
@@ -48,11 +50,11 @@
             </div>
             <div id="search">
                 <div id="search_color">
-                    <input type="text" placeholder="Search color" maxlength="9" >
+                    <input type="text" placeholder="Search color" maxlength="6" id="user_color">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 
-                <span class="hint">Enter RGB color number like #A8006D</span>
+                <span class="hint">Enter RGB color number like A8006D</span>
                 
             </div>
 
@@ -83,14 +85,14 @@
 
         <main id="main_pages" class="about_story about_privacy">
             <h2>Privacy and cookies policy</h2>
-            <p>This web-site Artistic color picker after being hosted collects some kinds of users personal data. Here you can find clear and transparent information about the usage of users personal data. </p>
+            <p>This web-site ART COLOR PICKER after being hosted collects some kinds of users personal data. Here you can find clear and transparent information about the usage of users personal data. </p>
             <br>
 
             <h3>Collection of information</h3>
             <p> <b>We collect contact information.</b> For example, we collect online personal identification data, among other purposes, to manage your registration as a user, to respond to your queries, in that case, for example, email addresses and provided name. If you register as a user, we will also have you create a password. In some cases, we may share this information for the purpose noted above. 
             </p>
 
-            <p><b>We collect information about your device and location</b> to provide best user experience. We collect the type of device you use and location to access web-site Artistic color picker. We also collect information about the type of browser you are using.</p>
+            <p><b>We collect information about your device and location</b> to provide best user experience. We collect the type of device you use and location to access web-site ART COLOR PICKER. We also collect information about the type of browser you are using.</p>
             <br>
 
             <h3>Usage of information </h3>
