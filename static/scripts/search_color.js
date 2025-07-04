@@ -1,37 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    
+    let user_color = document.getElementById('user_color')
 
-
-
-
-
-
-    const colors = document.querySelectorAll('.color');
-
-
-    colors.forEach(colorDiv => {
-        colorDiv.addEventListener('click', async (e) => {
-            const colorId = e.target.id;
-
-            // Make a POST request to Flask backend
-            const response = await fetch('/colors', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ color: colorId })
-            });
-
-
-
-            window.location.href = '/palettes';
-
+    user_color.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
             
+            postUserColor();
+        }
 
-            
-        });
-    });
+    })
+
+
+
+
+
+
 });
 
 
@@ -69,3 +52,7 @@ function postUserColor(){
 
 
 }
+
+
+
+

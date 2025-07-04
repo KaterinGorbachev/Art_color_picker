@@ -2,6 +2,7 @@ const color_picker = document.getElementById('color_picker')
 const about_btn = document.getElementById('about')
 
 
+
 function setupTouchToOpenWindow(btn, url) {
     
     if (!btn) {
