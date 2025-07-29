@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+
+
+
+    <title>Something went wrong</title>
+</head>
+<body>
+    <main class="error_page">
+        <div class="error_text">
+            <h1>{{ error_code }} {{ error_name }}</h1>
+            <br>
+            <p>You splashed paint everywhere like Jackson Pollock! Don’t worry, we just need a moment to tidy up your colorful masterpiece.</p>
+            <br>
+            <p>Click <a href="{{ url_for('home') }}">here</a> to go back where it’s safe.</p>
+            
+        </div>
+        
+        <div class="error_image">
+            <img src="{{ url_for('static', filename='images/kawaii_style_busket.png')}}" alt="sad busket with spilled paints">
+        
+        </div>
+
+    </main>
+    
+    
+</body>
+</html>
