@@ -71,8 +71,9 @@ The Colors Page displays color options in a grid layout with interactive element
 
     - Heart Button: Saves the selected color to the user's collection of favorite choices.
 
-    - Origami Button: Generates a shareable link for the selected color.
+    - Sakura Button: Opens filter options to filter by color category.
 
+    
 
 ----
 
@@ -91,4 +92,4 @@ The Palettes Page presents curated color combinations sourced from the database.
 
 Heart Button: Saves a color combination to the user's personal collection.
 
-Origami Button: Generates a shareable link for the selected palette.
+Desk Button: Opens the selected palette on a full screen.
