@@ -47,12 +47,18 @@
                     
                     </div>
                     <div class="color_buttons">
-                        <div class="color_btn delete" id="{{ number }}">
-                            <img src="{{ url_for('static', filename='images/B_trash-can.svg')}}" alt="delete">
+                        <div class="color_btn delete" id="{{ number }}" alt="delete">
+                            <svg class="color_btn">
+                                <use href="#trash-can"></use>
+                            </svg>
 
                         </div>
                         
-                        <div class="color_btn"><img src="{{ url_for('static', filename='images/C_woodworking.svg')}}" alt="expand" class="expand-color"> </div>
+                        <div class="color_btn expand-color" alt="expand" > 
+                            <svg class="color_btn">
+                                <use href="#expand-color-palette"></use>
+                            </svg>
+                        </div>
                     </div>
                     
                 

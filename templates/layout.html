@@ -3,16 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script type="text/javascript" src="{{ url_for('static', filename='scripts/script.js')}}" defer></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='scripts/search_color.js')}}" defer></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='scripts/post_collection.js')}}" defer></script>
-    {% block head_scripts %} {% endblock %}
     
-    
-
-    
-
     <!--Font Reggae One Static - google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,21 +14,33 @@
     <!--animate -->
     <link     rel="stylesheet"     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"   />
 
-
-
-
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/sakura_red.svg') }}" type="image/x-icon">
+
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/script.js')}}" defer></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/search_color.js')}}" defer></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/post_collection.js')}}" defer></script>
+    {% block head_scripts %} {% endblock %}
+    
+    
+
+    
+
 
 
 
     <title>{% block title %}Art color picker{% endblock %}</title>
 </head>
 <body>
+
+    {% include 'includes/icons.svg' %}
     <section id="page">
         <header id="page_menu">
             <div class="i_box mobile" >
-                <img id="home_button" src="{{ url_for('static', filename='images/home.svg')}}" alt="Home">
+                <img id="home_button" 
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" 
+                srcset="{{ url_for('static', filename='images/home.svg')}} 1100w" 
+                alt="Home">
             </div>
             <div class="text_box pc" >
                 <a href="#" id="home_link"><h2>ART COLOR PICKER</h2></a>
@@ -136,17 +139,23 @@
                 <ul class="mobile footer_img">
                     <li>
                         <div class="i_box mobile">
-                            <img src="{{ url_for('static', filename='images/stone.svg')}}" alt="Palettes" id="palettes_btn">
+                            <img 
+                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                            srcset="{{ url_for('static', filename='images/stone.svg')}} 1100w" alt="Palettes" id="palettes_btn">
                         </div>
                     </li>
                     <li>
                         <div class="i_box mobile"> <!--link to the page with colors-->
-                            <img src="{{ url_for('static', filename='images/brush.svg')}}" alt="Colors" id="color_btn">
+                            <img 
+                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                            srcset="{{ url_for('static', filename='images/brush.svg')}} 1100w" alt="Colors" id="color_btn">
                         </div>
                     </li>
                     <li>
                         <div class="i_box mobile">
-                            <img src="{{ url_for('static', filename='images/carp.svg')}}" alt="Random" id="random">
+                            <img 
+                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                            srcset="{{ url_for('static', filename='images/carp.svg')}} 1100w" alt="Random" id="random">
                         </div>
                         
                     </li>

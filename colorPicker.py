@@ -1,110 +1,114 @@
 import os 
 import sqlite3
 import random
-from flask import Flask, session, render_template, request, g, jsonify
+from flask import Flask, session, render_template, request, g
 import math
 from dotenv import load_dotenv
 from werkzeug.exceptions import HTTPException
 from flask import abort
+from flask_caching import Cache
 
 
 load_dotenv()
+
 
 app = Flask(__name__)
 p = os.getenv('secretKey')
 app.secret_key = p
 
+cache = Cache(app, config={'CACHE_TYPE': 'SimpleCache'})
+
 class AppError(Exception):
-    """Custom exception class for application-specific errors."""
+    """ Custom exception class for application-specific errors """
     def __init__(self, message="An internal application error occurred 😔", status_code=500):
         super().__init__(message)
         self.message = message
         self.status_code = status_code
 
-
 @app.errorhandler(HTTPException)
 def handle_http_exception(e):
-    """Handle HTTP errors"""
+    """ Handle HTTP errors """
     if 400 <= e.code < 500:
         
         return render_template("error.html", error_message=e.description, error_code=e.code, error_name=e.name), e.code
     
     elif e.code >= 500: 
         
-        return render_template("500.html", error_message="An internal server error occurred 😔"), 500
-
+        return render_template("500.html", error_message="An internal server error occurred 😔", error_code=e.code, error_name=e.name), e.code
     
     return e  
 
 
 @app.errorhandler(AppError)
 def handle_app_error(e): 
-    """Handle application errors."""
+    """ Handle application errors """
     
-    return render_template("500.html", error_message=e.message), e.status_code
+    return render_template("500.html", error_message=e.message, error_code=e.status_code, error_name = "Something went wrong"), e.status_code
 
 
 @app.route('/simulate-error')
 def simulate_error():
-    """Test application errors page"""
+    """ Test application errors page """
     #raise AppError("Simulated failure in the app", status_code=400)
-
-    abort(400)
-
+    abort(508)
 
 
 @app.route("/")
 def home(): 
+    """ Renders Home page """
     return render_template("home.html")
 
 @app.route("/about")
 def about(): 
+    """ Renders About page """
     return render_template("about.html")
 
 @app.route("/privacy")
 def privacy(): 
+    """ Renders Privacy policies page """
     return render_template("privacy.html")
 
 @app.route("/service")
 def service(): 
+    """ Renders Service terms page """
     return render_template("service.html")
 
 @app.route("/load_collection", methods=['POST'])
 def load_collection(): 
+    """ Receives as palettes a JSON playload with a 'collection' key from post_collection.js, that gets LocalStorage with a 'CollectionArtColorPicker' key. Saves palettes for session with 'session_collection' key """
     try:
         data = request.get_json()
         palettes = data.get('collection')       
-        session['session_collection'] = palettes  
-        print("Collection:", palettes)
+        session['session_collection'] = palettes          
         return '', 204
         
-    except Exception as e:
-        print('POST error:', e)
-        return '', 400
+    except HTTPException:        
+        raise
 
 
 @app.route("/collection")
 def collection(): 
+    """ Gets 'session_collection' with numbers of collected palettes. If there are no collection - returns empty dictionary.  Otherwise, converts data from pal into integers and passes them to get_collection function, finally renders a collection on a new page in the same window """
     
     pal = session.get('session_collection')
-    print("Session collection:", pal)
+    
     if not pal:
         return render_template("collection.html", palettes={})
     
     for i in range(len(pal)): 
         pal[i] = int(pal[i])
-
     
-    all_data = get_collection(pal)
-
-
-    return render_template("collection.html", palettes=all_data)
-
-
+    try:
+        all_data = get_collection(pal)
+        return render_template("collection.html", palettes=all_data)
+    
+    except Exception as e:
+        print('Application error:', e)
+        raise AppError("Could not get collection", 500) from e
 
 @app.route("/colors", methods=['GET','POST'])
 def colors():
-
+    """ Colors on the page works like buttons - by clicking on them 'colorId' is collected and passed to 'Palettes' page, wich opens in the same window. """
     if request.method == 'POST':
         try:
             data = request.get_json()
@@ -115,70 +119,72 @@ def colors():
             print("Session color:", color)
             return '', 204
         
-        except Exception as e:
-            return '', 400
+        except HTTPException:        
+            raise
 
     try: 
         data = color_for_search()
+        return render_template("colors.html", all_data= data)
         
     except Exception as e:
-        print("Error:", e)
-        return "Internal Server Error", 500 
-
-    
-    try:
-    
-        return render_template("colors.html", all_data= data)
-    except Exception as e:
-        print("Error:", e)
-        return "Internal Server Error", 500 
-    
+        print('Application error:', e)
+        raise AppError("Could not get colors", 500) from e
 
 
 @app.route('/palettes')
 def palettes():
+    """ Shows palettes for a selected color name. """
     color = session.get('selected_color') 
     print("Session color:", color)
     if not color:
-        return "No color selected", 400  
-
-    palettes_num = get_palettes(color)
-    data = {}
-    palettes_info = pal_colors_info()
-    print(palettes_info)
-    print(palettes_num)
-    for item in palettes_num: 
-        data[item] = palettes_info[item]
+        abort(400)
+        
+    try: 
+        palettes_num = get_palettes(color)
+        
+    
+        all_data = get_collection(palettes_num)
+        return render_template("palettes.html", palettes=all_data)
+    
+    except Exception as e:
+        print('Application error:', e)
+        raise AppError("Could not get collection", 500) from e
 
     
-   
-    return render_template("palettes.html", palettes=data)
 
 
 @app.route('/all_palettes')
 def all_palettes(): 
-    #palettes = get_all_palettes()
-    palettes = pal_colors_info()
-    print(palettes)
-    return render_template("all_palettes.html", palettes=palettes)
+    """ Returns in the same window all palettes from DB """
+    try: 
+        palettes = pal_colors_info()    
+        return render_template("all_palettes.html", palettes=palettes)
+    
+    except Exception as e:
+        print('Application error:', e)
+        raise AppError("Could not get collection", 500) from e
+
 
 
 @app.route('/random')
 def random_palettes(): 
-    palettes = pal_colors_info()  
-    random_palettes_k = random.choices(list(palettes.keys()), k=5)
-    data = {}
-    
-    for key in random_palettes_k: 
-        data[key] = palettes[key]
+    """ Returns in the same window 5 random palettes from DB """
+    try: 
+        palettes = pal_colors_info()  
+        random_palettes_k = random.choices(list(palettes.keys()), k=5)
+        data = {}
+        for key in random_palettes_k: 
+            data[key] = palettes[key]
+        return render_template("random.html", palettes=data)
         
-
-
-    return render_template("random.html", palettes=data)
+    except Exception as e:
+        print('Application error:', e)
+        raise AppError("Could not get palettes", 500) from e
 
 
 @app.route('/check_color', methods=['POST'])
-def check_cclor(): 
+def check_color(): 
+    """ Gets from search_color.js a user input (input was verified on a front)"""
     try:
         data = request.get_json()
         input_color = data.get('input_color')       
@@ -186,32 +192,29 @@ def check_cclor():
         print("User color:", input_color)
         return '', 204
         
-    except Exception as e:
-        print('POST error:', e)
-        return '', 400
+    except HTTPException:        
+        raise
 
 
 @app.route('/search_color')
 def search_color(): 
+    """ From session gets 'session_colorinput' and checks for 6 similar colors"""
     color = session.get("session_colorinput")
     print("Session color:", color)
     if not color:
-        return "No color selected", 400  
+        abort(400)
     
     
-    db_colors = color_for_search()
-
-
     try: 
-    
+        db_colors = color_for_search()
         data = find_closest_colors(color, db_colors, num_results=6)
         clean_data = [item[1] for item in data]
         return render_template("search_color.html", all_data= clean_data)
-    
-    except Exception as e: 
-        print(e)
-        return render_template("colors.html", all_data= db_colors)
-    
+
+    except Exception as e:
+        print('Application error:', e)
+        raise AppError("Could not find such colors", 500) from e
+
 
 
 
@@ -273,7 +276,7 @@ def delta_e_cie1976(lab1, lab2):
     )
 
 def find_closest_colors(input_hex, color_db, num_results=6):
-    """Returns the N closest colors from color_db to the input color."""
+    """Returns 6 closest colors from DB to the input color."""
     input_lab = hex_to_lab(input_hex)
     distances = []
 
@@ -282,119 +285,42 @@ def find_closest_colors(input_hex, color_db, num_results=6):
         delta_e = delta_e_cie1976(input_lab, db_lab)
         distances.append((delta_e, item))
 
-    distances.sort(key=lambda x: x[0])  # Sort by smallest distance
+    distances.sort(key=lambda x: x[0])  
     return distances[:num_results]
 
 
-
-def color_for_search(): 
+@cache.cached(timeout=3600)
+def color_for_search():
+    """ Gets from DB info about colors and represents it in a prescribed way """ 
     db = getattr(g, '_database', None)
     if db is None: 
         db = g._database = sqlite3.connect('./Colors.db')
     cursor = db.cursor()
-    try: 
-        cursor.execute("SELECT rgb, name, category FROM colors;")
-        rgb_name = cursor.fetchall() 
-
-    except Exception as e: 
-        print(e)
-        return []
-
-    
+    cursor.execute("SELECT rgb, name, category FROM colors;")
+    rgb_name = cursor.fetchall()   
     all_data = []
-
-    try: 
-
-        for item in rgb_name: 
-            data={}
-
-            
-            data['rgb'] = '#{0:06X}'.format(item[0])
-            data['name'] = item[1]
-            data['category'] = item[2]
-
-            all_data.append(data)
-
-        return all_data
-    
-    except Exception as e: 
-        print(e)
-        return []
-
-
-
-
-def get_collection(pal):
-
-    db = getattr(g, '_database', None)
-
-    if db is None: 
-        db = g._database = sqlite3.connect('./Colors.db')
-
-    cursor = db.cursor()
-
-
-    sql="SELECT palletes_has_colors.palletes_number, palletes_has_colors.colors_rgb, colors.name, colors.cmyk, colors.category FROM palletes_has_colors LEFT JOIN colors ON palletes_has_colors.colors_rgb = colors.rgb WHERE palletes_has_colors.palletes_number = ?"
-
-    data=[]
-
-    for num in pal: 
-            
-        cursor.execute(sql, (num,))
-        all_info = cursor.fetchall() 
+    for item in rgb_name: 
+        data={}
+        data['rgb'] = '#{0:06X}'.format(item[0])
+        data['name'] = item[1]
+        data['category'] = item[2]
+        all_data.append(data)
         
-        data.append(all_info)
-        #
-        #print(data)
-
-        
-    palettes_info = {}
-    for k in data: 
-        plt = k
-        for i in plt: 
-            p = [i]
-
-            for item in p:
-                color_info = {}
-                prefix='#'
-                if len(hex(item[1]).lstrip('0x'))<6:
-                    while  len(prefix+hex(item[1]).lstrip('0x'))<7: 
-                        prefix += '0'
-
-
-                    color_info['rgb'] = prefix + hex(item[1]).lstrip('0x')
-
-                else:
-
-                    color_info['rgb'] = '#' + hex(item[1]).lstrip('0x')
-                        
-                color_info['name'] = item[2]
-                color_info['cmyk'] = item[3]
-                color_info['category'] = item[4]
-                if item[0] in palettes_info.keys(): 
-                    palettes_info[item[0]].append(color_info)
-
-                else: 
-                    palettes_info[item[0]] = [color_info]
-
-    return palettes_info
+    return all_data
 
 
 
+
+@cache.cached(timeout=3600)
 def pal_colors_info(): 
-
+    """ Gets info from DB about all palettes with colors names and rgb """
     db = getattr(g, '_database', None)
-    
-
     if db is None: 
         db = g._database = sqlite3.connect('./Colors.db')
 
-
     cursor = db.cursor()
-
     cursor.execute("SELECT palletes_has_colors.palletes_number, palletes_has_colors.colors_rgb, colors.name, colors.cmyk, colors.category FROM palletes_has_colors LEFT JOIN colors ON palletes_has_colors.colors_rgb = colors.rgb;")
-    all_info = cursor.fetchall() 
-            
+    all_info = cursor.fetchall()             
     palettes_info = {}
 
     for item in all_info:
@@ -403,134 +329,43 @@ def pal_colors_info():
         if len(hex(item[1]).lstrip('0x'))<6:
             while  len(prefix+hex(item[1]).lstrip('0x'))<7: 
                 prefix += '0'
-
-
             color_info['rgb'] = prefix + hex(item[1]).lstrip('0x').upper()
-
         else:
-
-            color_info['rgb'] = '#'+hex(item[1]).lstrip('0x').upper()
-                
+            color_info['rgb'] = '#'+hex(item[1]).lstrip('0x').upper()             
         color_info['name'] = item[2]
         color_info['cmyk'] = item[3]
         color_info['category'] = item[4]
         if item[0] in palettes_info.keys(): 
             palettes_info[item[0]].append(color_info)
-
         else: 
             palettes_info[item[0]] = [color_info]
-
-        
+    
     return palettes_info
 
 
-def get_all_palettes(): 
-    
-    db = getattr(g, '_database', None)
+def get_collection(pal):
+    """ Gets palettes with a specific numbers """  
+    all_palettes = pal_colors_info()
+    selection = {}
+    for item in pal:
+        selection[int(item)] = all_palettes[int(item)] 
 
-    if db is None: 
-        db = g._database = sqlite3.connect('./Colors.db')
+    return selection
 
-     
-    
-    cursor = db.cursor()
-    try: 
-        query = f"SELECT * FROM palletes_has_colors;"
-        cursor.execute(query)
-                    
-        palettes = cursor.fetchall()
-        palettes_has_colors = {}
-
-        for item in palettes: 
-                
-            rgb=item[0]
-            prefix='#'
-            if len(hex(rgb).lstrip('0x'))<6:
-                while  len(prefix+hex(rgb).lstrip('0x'))<7: 
-                    prefix += '0'
-
-                rgb = prefix + hex(rgb).lstrip('0x')
-            else:
-
-                rgb = prefix + hex(rgb).lstrip('0x')
-
-            color = rgb
-
-            if item[1] in palettes_has_colors.keys(): 
-                palettes_has_colors[item[1]].append(color)
-
-            else: 
-                palettes_has_colors[item[1]] = [color]
-
-        return palettes_has_colors
-        
-    except: 
-            
-        return 'There are no palettes'
-
-
-    
  
 def get_palettes(color): 
-    db = getattr(g, '_database', None)
+    """ Gets numbers of palettes for a selected color name """
+    all_palettes = pal_colors_info()
+    pal_num = all_palettes.keys()
+    selection = []
+    for k in pal_num: 
+        for i in range(len(all_palettes[k])): 
+            if all_palettes[k][i]['name'] == color: 
+                selection.append(k)
+
+    return selection
     
-
-    if db is None: 
-        db = g._database = sqlite3.connect('./Colors.db')
-    cursor = db.cursor()
-    try: 
-        query = f"SELECT palletes_number FROM palletes_has_colors WHERE colors_rgb = (SELECT rgb FROM colors WHERE name = ?);"
-        cursor.execute(query, (color,))
-                
-        num = cursor.fetchall()
-        palettes_num =[]
-        for item in num:
-            for i in item:
-                palettes_num.append(i)
-
-            
-
-        return palettes_num
         
-    except Exception as e: 
-        print(e)
-                
-             
-
-
-def get_db(): 
-    db = getattr(g, '_database', None)
-    if db is None: 
-        db = g._database = sqlite3.connect('./Colors.db')
-    cursor = db.cursor()
-    cursor.execute("SELECT rgb, name FROM colors;")
-    rgb_name = cursor.fetchall() 
-
-    data = {}
-    all_data = []
-
-    for item in rgb_name: 
-        prefix='#'
-        if len(hex(item[0]).lstrip('0x'))<6:
-            while  len(prefix+hex(item[0]).lstrip('0x'))<7: 
-                prefix += '0'
-
-
-            data['rgb'] = prefix + hex(item[0]).lstrip('0x')
-
-        else:
-
-            data['rgb'] = '#' + hex(item[0]).lstrip('0x')
-            
-            name = item[1].split()
-            data['name'] = "_".join(name)
-
-            all_data.append(data)
-            data={}
-        
-   
-    return all_data
-
 
 @app.teardown_appcontext
 def close_connection(exception): 

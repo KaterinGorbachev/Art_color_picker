@@ -14,24 +14,43 @@ document.addEventListener('DOMContentLoaded', () => {
         colorDiv.addEventListener('click', async (e) => {
             const colorId = e.target.id;
 
-            // Make a POST request to Flask backend
-            const response = await fetch('/colors', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ color: colorId })
-            });
+            try {
+                await fetch('/colors', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ color: colorId })
+                });
+
+                window.location.href = '/palettes';
+            } catch (error) {
+                console.error('Error sending color:', error);
+                alert('Something went wrong. Please try again.');
+            }
 
 
 
-            window.location.href = '/palettes';
-
-            
+                      
 
             
         });
     });
+
+
+    window.onclick = function(event) {
+    if (!event.target.matches('.filter-button')) {
+        const dropdown = document.getElementById("filterDropdown");
+        if (dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
+        }
+    }
+}
+
+
+
+
+
 });
 
 
@@ -69,3 +88,21 @@ function postUserColor(){
 
 
 }
+
+
+
+function toggleDropdown() {
+    document.getElementById("filterDropdown").classList.toggle("show");
+}
+
+function filterColors(categoryClass) {
+    const boxes = document.querySelectorAll(".color_box");
+    boxes.forEach(box => {
+        if (categoryClass === 'all' || box.classList.contains(categoryClass)) {
+            box.style.display = "inline-block";
+        } else {
+            box.style.display = "none";
+        }
+    });
+}
+

@@ -10,11 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     })
 
-
-
-
-
-
 });
 
 
@@ -47,7 +42,7 @@ function postUserColor(){
 
 
     } else{ 
-        alert('Invalid input')
+        alert('Oops! Your color choices are a bit out of the spectrum')
     }
 
 

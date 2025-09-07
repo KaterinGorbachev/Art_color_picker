@@ -12,12 +12,43 @@
 
 
 {% block content %}
+<aside>
+    <div class="filter-container">
+        <button class="filter-button" onclick="toggleDropdown()"> </button>
+        <div class="filter-dropdown" id="filterDropdown">
+            <h2>Filter by color:</h2>
+            <label>
+                <input type="radio" name="category" value="all" checked onclick="filterColors('all')"> All
+            </label>
+            <label>
+                <input type="radio" name="category" value="category_1" onclick="filterColors('category_1')"> Red-violet
+            </label>
+            <label>
+                <input type="radio" name="category" value="category_2" onclick="filterColors('category_2')"> Yellow-red
+            </label>
+            <label>
+                <input type="radio" name="category" value="category_3" onclick="filterColors('category_3')"> Yellow-green
+            </label>
+            <label>
+                <input type="radio" name="category" value="category_4" onclick="filterColors('category_4')"> Blue-green
+            </label>
+            <label>
+                <input type="radio" name="category" value="category_5" onclick="filterColors('category_5')"> Blue-violet
+            </label>
+            <label>
+                <input type="radio" name="category" value="category_6" onclick="filterColors('category_6')"> White-black
+            </label>
+            
+        </div>
+    </div>
+</aside>
+
 <main id="main_pages">
             <h2>Colors</h2>
                         
             <div class="colors_box" >
                 {% for item in all_data %}
-                <div class="color_box">
+                <div class="color_box category_{{item['category']}}" >
                     <div class="color" id="{{ item['name'] }}" style="background-color: {{ item['rgb'] }}">
                         
                     </div>

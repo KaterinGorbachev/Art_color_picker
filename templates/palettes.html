@@ -15,6 +15,8 @@
 
 {% block content %}
 
+
+
 <main id="main_pages">
             <h2>Palettes for selected color</h2>
             
@@ -44,10 +46,27 @@
                     
                     </div>
                     <div class="color_buttons">
-                        <div class="color_btn like" id="{{ number }}"><img src="{{ url_for('static', filename='images/B_heart-outline.svg')}}" alt="save" ></div>
-                        <div class="color_btn not_visible"><img src="{{ url_for('static', filename='images/B_heart-solid.svg')}}" alt="saved" ></div>
+                        <div class="color_btn like" id="{{ number }}">
+                            <svg class="color_btn">
+                                <use href="#heart-icon-outline">
+                                    
+                                </use>
+                            </svg>
+                            
+                        </div>
+                        <div class="color_btn not_visible">
+                            <svg class="color_btn">
+                                <use href="#heart-icon-filled"></use>
+                            </svg>
+                            
+                            
+                        </div>
                         
-                        <div class="color_btn"><img src="{{ url_for('static', filename='images/C_woodworking.svg')}}" alt="expand" class="expand-color"> </div>
+                        <div class="color_btn expand-color" alt="expand" > 
+                            <svg class="color_btn">
+                                <use href="#expand-color-palette"></use>
+                            </svg>
+                        </div>
                         
                         
                     </div>

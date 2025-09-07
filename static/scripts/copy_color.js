@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         // Copy to clipboard on click
         button.addEventListener('click', (event) => {
-            navigator.clipboard.writeText(originalText)
+            navigator.clipboard.writeText(originalText.replace('#', ''))
                 .then(() => {
                     showHint(event.target, "Copied", originalText);
                 })
@@ -21,12 +21,43 @@ window.addEventListener('DOMContentLoaded', () => {
 
         // Change text to "Copy" on hover
         button.addEventListener('mouseenter', () => {
-            button.innerText = '❏ '+originalText;
+            button.innerText = originalText.replace('#', '❏');
         });
 
         // Revert back to original color on mouse leave
         button.addEventListener('mouseleave', () => {
             button.innerText = originalText;
+        });
+    });
+
+
+
+    const expandButtons = document.querySelectorAll(".expand-color");
+
+    expandButtons.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            
+            e.stopPropagation(); 
+
+        
+            const group = btn.closest(".palette_grp");
+            const box = group.querySelector(".pallete_box");
+            if (!box || box.classList.contains("expanded")) return;
+
+        
+            box.classList.add("expanded");
+            
+            const closeBtn = document.createElement("div");
+            closeBtn.innerHTML = "&#10006;";
+            closeBtn.classList.add("close-expanded");
+
+            
+            box.appendChild(closeBtn);
+            closeBtn.addEventListener("click", (e) => {
+                e.stopPropagation(); 
+                box.classList.remove("expanded");
+                closeBtn.remove();
+            });
         });
     });
 

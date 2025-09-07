@@ -13,7 +13,7 @@
 <body>
     <main class="error_page">
         <div class="error_text">
-            <h1>500 Internal Server Error</h1>
+            <h1>{{ error_code }} {{ error_name }}</h1>
             <br>
             <p>Sorry, something went wrong on our end. Please try again later.</p>
             <p>Click <a href="{{ url_for('home') }}">here</a> to go back where it’s safe.</p>

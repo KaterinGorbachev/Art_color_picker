@@ -139,10 +139,12 @@ li{
     
 }
 
-.button:hover{ 
+.button :hover{ 
     color: black;
     transition: 0s;
 }
+
+
 
 .circle_blue{ 
     border: none;
@@ -363,13 +365,7 @@ li{
   
 }
 
-/*
-#menu-toggle:checked + label + .enlaces {
-    display: block;
-    max-height: 600px; 
-    width: 400px;
-    transition: max-height 0.4s ease-in-out;
-}*/
+
 
 .exit i{
     color: grey;
@@ -389,11 +385,11 @@ li{
 
 
 .enlaces li:hover a{ 
-    color: #A90636;
+    color: #4F8FE6;
 }
 
 .exit:hover { 
-    color: #A90636;
+    color: #4F8FE6;
 }
 
 #burger{ 
@@ -404,6 +400,12 @@ li{
     font-size: 34px;
 }
 
+#burger:hover {
+    color: #4F8FE6;
+}
+
+
+/* icons for mobile*/
 
 
 
@@ -587,12 +589,12 @@ li{
 
     display: flex;
     flex-wrap: wrap;
-    padding: 2rem 1rem;
+    padding: 2rem 1.7rem;
     
     gap: 1rem;
     
     max-width: 95vw;
-    padding-bottom: 20vh;
+    
     
     
     
@@ -645,7 +647,7 @@ li{
     flex-direction: row;
     flex-wrap: wrap;
     width: 90vw;
-    padding-left: 1.7rem;
+    padding: 2rem 1.7rem;
         
 }
 
@@ -722,7 +724,7 @@ li{
 }
 
 .copy_color:hover{ 
-    color: #A90636;
+    color: #4F8FE6;
     font-weight: 300;
 
 }
@@ -813,8 +815,11 @@ li{
 .color_buttons i, .color_btn{
     width: 40px;
     height: 40px;
-    
     color: #a90637;
+    fill: #A90636;
+    
+    
+    
     cursor: pointer;
     font-size: 32px;
 
@@ -823,6 +828,14 @@ li{
 
 .color_buttons .color_btn img{ 
     width: 100%;
+}
+
+.color_btn :hover { 
+
+    fill: #4F8FE6;
+    color: #4F8FE6;
+    
+   
 }
 
 
@@ -862,6 +875,75 @@ li{
 
 
 /*--- Privacy page main content style ends here ---*/
+
+/* aside filter for colors*/
+
+
+aside { 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* corrected */
+    justify-content: flex-start; /* top of the aside */
+}
+.filter-container {
+    position: fixed;
+    top: 40vh;             
+    right: 0;           
+    z-index: 800;          
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* button aligns to the right */
+    padding-right: 10px;   /* small gap from page edge */
+}
+
+.filter-button {
+    background-image: url('/static/images/sakura_red.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 65%; 
+    color: white;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    width: 70px;
+    height: 70px;
+}
+
+.filter-button:hover {
+    background-color: #4f8ee698;
+}
+
+.filter-dropdown {
+    display: none;
+    position: fixed;
+    top: 10vh; /* button height + small margin */
+    right: 0;  /* align dropdown to button’s right edge */
+    width: 250px;
+    background-color: white;
+    box-shadow: 0 0 10px 1px #4F8FE6;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.filter-dropdown label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: lighter;
+    color: gray;
+}
+
+.filter-dropdown label:hover { 
+    color: #4F8FE6;
+}
+
+.show {
+    display: block;
+}
+
 
 
 
@@ -999,8 +1081,13 @@ li{
     }
 
     .grid_menu a:hover h3{ 
-        color: #A90636;
+        color: #4F8FE6;
         
+    }
+
+    a:hover h2{ 
+        color: #4F8FE6;
+
     }
 
     
@@ -1432,6 +1519,12 @@ li{
         display: flex;
         
 
+    }
+
+
+    .filter-dropdown{ 
+        top: 15vh;
+        width: 300px;
     }
         
 
