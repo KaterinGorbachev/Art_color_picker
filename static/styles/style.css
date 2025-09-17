@@ -455,7 +455,8 @@ li{
 
 .footer_img{ 
     display: flex;
-    width: 100%;
+    width: 90vw;
+    padding: 0 2rem;
     align-items: center;
     justify-content: space-between;
 
