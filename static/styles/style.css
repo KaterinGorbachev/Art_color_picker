@@ -484,7 +484,7 @@ li{
     position: relative;
      
     
-    max-width: 100%;
+    max-width: 100vw;
     min-height: 100vh;
 
     padding-top: 1rem;
