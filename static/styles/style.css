@@ -441,7 +441,7 @@ li{
 
 .mobile_footer{ 
     
-    width: 100%;
+    width: 90vw;
 
     display: flex;
     flex-direction: row;
