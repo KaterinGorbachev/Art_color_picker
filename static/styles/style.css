@@ -853,7 +853,11 @@ li{
 #main_pages h2, h3, span{ 
     text-align: start;
     padding-left: 2rem;
-    padding-top: 2rem;
+    padding-top: 10px;
+}
+
+span{ 
+    width: 80%;
 }
 
 
@@ -871,7 +875,7 @@ aside {
 }
 .filter-container {
     position: fixed;
-    top: 40vh;             
+    bottom: 15vh;             
     right: 0;           
     z-index: 800;          
     display: flex;
@@ -1231,14 +1235,16 @@ aside {
 
     #main_pages h2{ 
         padding-top: 1rem;
-        font-size: 44pt;
-        padding: 2rem 1rem ;
+        font-size: 32px;
+        padding: 0 2rem;
+        padding-top: 1rem;
     }
 
     #main_pages span{ 
         
-        font-size: 28pt;
-        padding-left: 4rem;
+        font-size: 16pt;
+        padding: 10px 2rem;
+        padding-bottom: 1rem;
         font-weight: lighter;
 
     }
