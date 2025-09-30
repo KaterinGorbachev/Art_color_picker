@@ -17,9 +17,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/sakura_red.svg') }}" type="image/x-icon">
 
-    <script type="text/javascript" src="{{ url_for('static', filename='scripts/script.js')}}" defer></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='scripts/search_color.js')}}" defer></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='scripts/post_collection.js')}}" defer></script>
+    <script src="{{ url_for('static', filename='scripts/script.js')}}" defer></script>
+    <script src="{{ url_for('static', filename='scripts/search_color.js')}}" defer></script>
+    <script src="{{ url_for('static', filename='scripts/post_collection.js')}}" defer></script>
     {% block head_scripts %} {% endblock %}
     
     
