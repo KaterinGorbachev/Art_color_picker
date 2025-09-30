@@ -106,10 +106,14 @@ li{
 }
 
 #homepage_main{
+    width: 100vw;
     padding-top: 1rem;
     display: flex;
     flex-direction: column-reverse;
-    padding-left: 2rem;
+    
+    align-items: flex-start;
+    padding-left: 15%;
+    
 }
 
 
@@ -184,7 +188,7 @@ li{
 
 #homepage_footer p{ 
     color: rgba(91, 91, 91, 0.285);
-    font-size: 2vw;
+    font-size: 14px;
     display: flex;
     bottom: 0;
     
@@ -394,8 +398,68 @@ li{
 
 
 /* icons for mobile*/
+.pc_footer{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+        
+    padding: 2rem 0;
+    height: 600px;
+        
+        
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(79, 142, 230, 0.571) 100%);
+        
+    }
 
+.pc_footer h1{ 
+    color: black;
+    font-family: "Reggae One", serif;
+    text-align: center;
+    padding-bottom: 1rem;
+    font-size: 22px;
+    }
 
+.pc_footer hr{ 
+    width: 90vw;
+        
+    line-height: 2px;
+    border: 1px solid #4f8ee62b;
+    border-radius: 5%;
+        
+    }
+
+#info{ 
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: start;
+    justify-content: center;
+    width: 100vw;
+    gap: 2rem;
+    padding-top: 2rem;
+    }
+.footer_info ul li h2{
+        
+    font-weight: 400;
+    text-align: start;
+    font-size: 18px;
+
+    }
+
+.footer_info ul li a{
+    color: black;
+    font-family: "Kanit", serif;
+    letter-spacing: 1.5px;
+    font-weight: 200;
+    font-size: 14px;
+    }
+
+.footer_info ul{ 
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    }
+    
 
 #page_footer{
     background-color: rgb(255, 255, 255);
@@ -910,7 +974,7 @@ aside {
     right: 0;  /* align dropdown to button’s right edge */
     width: 250px;
     background-color: white;
-    box-shadow: 0 0 10px 1px #4F8FE6;
+    box-shadow: 0px 10px 10px -10px #4F8FE6;
     padding: 10px;
     z-index: 1000;
 }
@@ -976,9 +1040,10 @@ aside {
     #homepage_main{ 
         flex-direction: row-reverse;
         align-items: center;
-        justify-content: start;
-        padding-left: 16rem;
+        justify-content: center;
+        padding-left: 0;
         padding-top: 4rem;
+        padding-right: 10rem;
     }
 
     .circle_blue{
@@ -1076,7 +1141,7 @@ aside {
         
     }
 
-    h2:hover { 
+    #home_link:hover { 
         color: #4F8FE6;
 
     }
@@ -1112,7 +1177,7 @@ aside {
         width: 250px;
         position: absolute;
         font-size: 12px;
-        top: 10.2vh;
+        top: 10vh;
         text-align: center;
     }
 
@@ -1176,7 +1241,7 @@ aside {
         font-family: "Reggae One", serif;
         text-align: center;
         padding-bottom: 1rem;
-        font-size: 42px;
+        font-size: 32px;
     }
 
     .pc_footer hr{ 
@@ -1192,17 +1257,16 @@ aside {
         display: flex;
         flex-direction: row;
         align-items: start;
-        justify-content: space-between;
+        justify-content: center;
         width: 80vw;
-
-        padding: 4rem 16rem;
-
+        gap: 6rem;
+        padding-top: 2rem;
     }
     .footer_info ul li h2{
         
         font-weight: 400;
         text-align: start;
-        font-size: 36px;
+        font-size: 22px;
 
     }
 
@@ -1211,7 +1275,7 @@ aside {
         font-family: "Kanit", serif;
         letter-spacing: 1.5px;
         font-weight: 200;
-        font-size: 28px;
+        font-size: 18px;
     }
 
     .footer_info ul{ 
@@ -1351,8 +1415,8 @@ aside {
     .color{ 
         
         
-        width: 250px;
-        height: 250px;
+        width: 150px;
+        height: 150px;
         
         
     }
@@ -1520,9 +1584,26 @@ aside {
 
 
     .filter-dropdown{ 
-        top: 15vh;
-        width: 300px;
+        top: 10vh;
+        width: 400px;
+        padding: 1rem 2rem;
+        padding-bottom: 4rem;
     }
+
+    .filter-dropdown label{ 
+        
+        font-weight: 200;
+        font-size: 18px;
+        letter-spacing: 1.3px;
+        gap: 1rem;
+    }
+
+    .filter-dropdown h2{ 
+        font-size: 18px;
+        padding-bottom: 1rem;
+    }
+
+
         
 
     
