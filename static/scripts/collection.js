@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (collection.length == 0){ 
         col_empty.innerHTML = 'The collection is empty'
     } else{
-        col_empty.innerHTML = ''
+        col_empty.innerHTML = 'Save, organize, and revisit the palettes that inspire you most'
 
     }
 
