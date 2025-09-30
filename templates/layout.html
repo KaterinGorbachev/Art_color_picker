@@ -21,21 +21,14 @@
     <script src="{{ url_for('static', filename='scripts/search_color.js')}}" defer></script>
     <script src="{{ url_for('static', filename='scripts/post_collection.js')}}" defer></script>
     {% block head_scripts %} {% endblock %}
-    
-    
-
-    
-
-
-
 
     <title>{% block title %}Art color picker{% endblock %}</title>
 </head>
 <body>
 
     {% include 'includes/icons.svg' %}
-    <section id="page">
-        <header id="page_menu">
+    
+    <header id="page_menu">
             <div class="i_box mobile" >
                 <img id="home_button" 
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" 
@@ -43,16 +36,20 @@
                 alt="Home">
             </div>
             <div class="text_box pc" >
-                <a href="#" id="home_link"><h2>ART COLOR PICKER</h2></a>
+                <h2 id="home_link" class="homepage_name">ART COLOR PICKER</h2>
             </div>
             
             <div id="menu_pc_panel" class="pc">
                 <nav>
-                    <li class="grid_menu">
-                        <a href="#" id="palletes_link_pc"><h3>PALETTES</h3></a>
-                    </li>
-                    <li class="grid_menu"><a href="#" id="random_link_pc"><h3>RANDOM</h3></a></li>
-                    <li class="grid_menu"><a href="#" id="color_picker_pc"><h3>COLORS</h3></a></li>
+                    <ul>
+                        <li class="grid_menu" id="palletes_link_pc">
+                            <h3>PALETTES</h3>
+                        </li>
+                        <li class="grid_menu" id="random_link_pc"><h3>RANDOM</h3></li>
+                        <li class="grid_menu" id="color_picker_pc"><h3>COLORS</h3></li>
+
+                    </ul>
+                    
                 </nav>
                 
                 
@@ -90,13 +87,13 @@
             
             
             
-        </header>
+    </header>
 
-        {% block content %}
+    {% block content %}
         
-        {% endblock %}
+    {% endblock %}
 
-        <div class="pc_footer pc">
+    <div class="pc_footer pc">
             
             <h1>ART COLOR PICKER</h1>
             <hr>
@@ -132,9 +129,9 @@
             </div>
                 
             
-        </div>
+    </div>
 
-        <footer id="page_footer" >
+    <footer id="page_footer" >
             <nav class="mobile mobile_footer">
                 <ul class="mobile footer_img">
                     <li>
@@ -172,13 +169,7 @@
 
             
 
-        </footer>
+    </footer>
 
-
-
-
-
-    </section>
-    
 </body>
 </html>
