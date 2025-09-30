@@ -47,18 +47,21 @@
                     
                     </div>
                     <div class="color_buttons">
-                        <div class="color_btn delete" id="{{ number }}" alt="delete">
+                        <div id="{{ number }}" class="color_btn delete" role="img" aria-labelledby="discard_{{ loop.index }}">
                             <svg class="color_btn">
+                                <title id="discard_{{ loop.index }}">Discard</title>
                                 <use href="#trash-can"></use>
                             </svg>
 
                         </div>
                         
-                        <div class="color_btn expand-color" alt="expand" > 
+                        <div class="color_btn expand-color" role="img" aria-labelledby="expand_{{ loop.index }}"> 
                             <svg class="color_btn">
+                                <title id="expand_{{ loop.index }}">Full-screen</title>
                                 <use href="#expand-color-palette"></use>
                             </svg>
                         </div>
+
                     </div>
                     
                 

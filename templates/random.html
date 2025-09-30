@@ -44,8 +44,9 @@
                     
                     </div>
                     <div class="color_buttons">
-                        <div class="color_btn like" id="{{ number }}">
+                        <div id="{{ number }}" class="color_btn like" role="img" aria-labelledby="save_{{ loop.index }}">
                             <svg class="color_btn">
+                                <title id="save_{{ loop.index }}">Save</title>
                                 <use href="#heart-icon-outline">
                                     
                                 </use>
@@ -53,15 +54,17 @@
                             
                         </div>
                         <div class="color_btn not_visible">
-                            <svg class="color_btn">
+                            <svg class="color_btn" role="img" aria-labelledby="saved_{{ loop.index }}">
+                                <title id="saved_{{ loop.index }}">Discard</title>
                                 <use href="#heart-icon-filled"></use>
                             </svg>
                             
                             
                         </div>
                         
-                        <div class="color_btn expand-color" alt="expand" > 
+                        <div class="color_btn expand-color" role="img" aria-labelledby="expand_{{ loop.index }}"> 
                             <svg class="color_btn">
+                                <title id="expand_{{ loop.index }}">Full-screen</title>
                                 <use href="#expand-color-palette"></use>
                             </svg>
                         </div>
