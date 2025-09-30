@@ -39,7 +39,7 @@ const menu = document.getElementById('enlaces')
 function desplegarMenu(event){
     // añade la clase mostrar si no la encuentra
     // elimina la clase mostrar si la encuentra
-    event.stopPropagation()
+    
     menu.classList.toggle('mostrar')
     
   }
