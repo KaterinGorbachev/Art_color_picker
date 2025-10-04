@@ -198,7 +198,7 @@ def check_color():
 
 @app.route('/search_color')
 def search_color(): 
-    """ From session gets 'session_colorinput' and checks for 6 similar colors"""
+    """ From session gets 'session_colorinput' """
     color = session.get("session_colorinput")
     print("Session color:", color)
     if not color:
@@ -207,9 +207,19 @@ def search_color():
     
     try: 
         db_colors = color_for_search()
-        data = find_closest_colors(color, db_colors, num_results=6)
-        clean_data = [item[1] for item in data]
-        return render_template("search_color.html", all_data= clean_data)
+        if color[0] == '#':
+            """ Checks for 6 similar colors if was hex color number given """
+            data = find_closest_colors(color, db_colors, num_results=6)
+            clean_data = [item[1] for item in data]
+        else:
+            """ Checks for colors that contain given word"""
+            clean_data = []
+            for i in db_colors: 
+                if color.lower() in i['name'].lower(): 
+                    clean_data.append(i)
+
+                
+        return render_template("search_color.html", all_data=clean_data)
 
     except Exception as e:
         print('Application error:', e)
