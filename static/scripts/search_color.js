@@ -15,10 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function postUserColor(){ 
 
-    let color_num = '#' + user_color.value.trim();
-    const isValid = /^#([0-9A-Fa-f]{6})$/.test(color_num);
-
-    if (isValid) {
+    let color_num = user_color.value.trim();
+    // checks if there is hex num without # and adds #
+    const isValid = /^([0-9A-Fa-f]{6})$/.test(color_num);
+    if (isValid){ 
+        color_num = '#' + user_color.value.trim();
+    }
+    // checks if the name of a color is not too much long
+    if (color_num.length >0 && color_num.length<= 50) {
 
         fetch('/check_color', {
         method: 'POST',
@@ -41,7 +45,9 @@ function postUserColor(){
     });
 
 
-    } else{ 
+    } else if(color_num.length === 0){
+        alert("Oops! You forgot to type 😅")   // checks spaces only and empty string
+    }  else{ 
         alert('Oops! Your color choices are a bit out of the spectrum')
     }
 
