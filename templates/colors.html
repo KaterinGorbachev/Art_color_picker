@@ -2,6 +2,7 @@
 
 {% block head_scripts %}
 <script src="{{ url_for('static', filename='scripts/colors.js')}}" defer></script>
+<script src="{{ url_for('static', filename='scripts/filter_colors.js')}}" defer></script>
 
 {% endblock %}
 
@@ -45,7 +46,7 @@
 
 <main id="main_pages">
             <h2>Colors</h2>
-            <span>Start with your chosen color and see how it transforms into a full palette</span>
+            <span>Select a color and see how it transforms into a full palette</span>
                         
             <div class="colors_box" >
                 {% for item in all_data %}
