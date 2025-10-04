@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         // Change text to "Copy" on hover
         button.addEventListener('mouseenter', () => {
-            button.innerText = originalText.replace('#', '❏');
+            button.innerText = originalText.replace('#', '📚');
         });
 
         // Revert back to original color on mouse leave
