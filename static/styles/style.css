@@ -732,12 +732,10 @@ li{
     }
 
 .color_info{ 
-    display: flex;
-        
+    display: flex;     
     flex-direction: column;
     align-items: stretch;
     justify-content: start;
-    gap: 3px;
     font-size: 14px;
     font-weight: 200;
     letter-spacing: 1.3px;
@@ -768,7 +766,7 @@ li{
     cursor: pointer;
     transition: 0.5s;
     text-align: left;
-    padding: 5px;
+    padding-top: 5px;
 }
 
 .copy_color:hover{ 
@@ -1452,7 +1450,7 @@ aside {
         min-width: calc(50% - 1rem);
         
         padding: 5px;
-        height: 400px;
+        height: 300px;
         gap: 10px;
                 
     }
@@ -1476,12 +1474,10 @@ aside {
 
     .color_info{ 
         display: flex;
-        
         flex-direction: column;
         align-items: stretch;
         justify-content: start;
-        
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 300;
         flex: 1 1 100px;
         min-width: 100px;
@@ -1491,7 +1487,7 @@ aside {
     }
 
     .color_info p{ 
-        padding: 5px;
+        
         width: 100%;
         
         
