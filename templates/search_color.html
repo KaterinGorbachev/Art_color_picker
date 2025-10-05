@@ -27,37 +27,23 @@
                 {% endif %}
 
             </span>
-            
-
-                                    
+                     
             <div class="colors_box" >
                 {% for item in all_data %}
                 <div class="color_box">
                     <div class="color" id="{{ item['name'] }}" style="background-color: {{ item['rgb'] }}">
-                        
+                       
                     </div>
                     <button class="copy_color">{{ item['rgb'] }}</button>
                     <p>{{ item['name'] }}</p>
                     
                 </div>
-                
-                
 
                 {% endfor %}
              
             </div>
-           
-                        
-            
 
-                
-                
-                
-
-                
-             
-            </div>
-           
+            </div>         
             
 </main>
 

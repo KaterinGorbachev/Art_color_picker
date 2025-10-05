@@ -135,24 +135,51 @@
             <nav class="mobile mobile_footer">
                 <ul class="mobile footer_img">
                     <li>
-                        <div class="i_box mobile">
-                            <img 
-                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
-                            srcset="{{ url_for('static', filename='images/stone.svg')}} 1100w" alt="Palettes" id="palettes_btn">
+                        <div class="footer-btn-container mobile">
+                            <div class="footer-btn-box" id="palettes_btn">
+                                <svg class="footer-btn">
+                                <title>palettes</title>
+                                <use href="#stones">
+                                    
+                                </use>
+                            </svg>
+                            <p>palettes</p>
+
+                            </div>
+                            
+
                         </div>
                     </li>
                     <li>
-                        <div class="i_box mobile"> <!--link to the page with colors-->
-                            <img 
-                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
-                            srcset="{{ url_for('static', filename='images/brush.svg')}} 1100w" alt="Colors" id="color_btn">
+                        <div class="footer-btn-container mobile">
+                            <div class="footer-btn-box" id="color_btn">
+                                <svg class="footer-btn">
+                                <title>colors</title>
+                                <use href="#brush" transform="translate(0,6)">
+                                    
+                                </use>
+                            </svg>
+                            <p>colors</p>
+
+                            </div>
+                            
+
                         </div>
                     </li>
                     <li>
-                        <div class="i_box mobile">
-                            <img 
-                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
-                            srcset="{{ url_for('static', filename='images/carp.svg')}} 1100w" alt="Random" id="random">
+                        <div class="footer-btn-container mobile">
+                            <div class="footer-btn-box" id="random">
+                                <svg class="footer-btn">
+                                <title>random</title>
+                                <use href="#random" >
+                                    
+                                </use>
+                            </svg>
+                            <p>random</p>
+
+                            </div>
+                            
+
                         </div>
                         
                     </li>
