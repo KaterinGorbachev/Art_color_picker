@@ -26,6 +26,8 @@ function filterColors(categoryClass) {
     boxes.forEach(box => {
         if (categoryClass === 'all' || box.classList.contains(categoryClass)) {
             box.style.display = "inline-block";
+            
+
         } else {
             box.style.display = "none";
         }
