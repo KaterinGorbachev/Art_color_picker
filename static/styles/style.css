@@ -305,6 +305,7 @@ li{
     justify-items: center;     
     fill: currentColor;  
     transition: fill 0.3s;
+    pointer-events: none;
     
     
 }
