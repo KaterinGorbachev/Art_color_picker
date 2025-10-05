@@ -83,7 +83,7 @@ function setupTouchToOpenWindow(btn, url) {
       return;
     }
 
-    btn.addEventListener('click', () => open_window(url))
+    btn.addEventListener('click', (e) => open_window(url))
   }
 
 function open_window(url){ 
