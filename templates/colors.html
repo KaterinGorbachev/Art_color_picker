@@ -13,11 +13,14 @@
 
 
 {% block content %}
-<aside>
+
+
+<main id="main_pages">
+    <aside>
     <div class="filter-container" id="filter-container">
         <button class="filter-button"> </button>
         <div class="filter-dropdown" id="filterDropdown">
-            <h2>Filter by color category:</h2>
+            <h4>Filter by color category:</h4>
             <label>
                 <input type="radio" name="category" value="all" checked onclick="filterColors('all')"> All
             </label>
@@ -42,26 +45,22 @@
             
         </div>
     </div>
-</aside>
-
-<main id="main_pages">
-            <h2>Colors</h2>
-            <span>Select a color and see how it transforms into a full palette</span>
+    </aside>
+    <h2>Colors</h2>
+    <span>Select a color and see how it transforms into a full palette</span>
                         
-            <div class="colors_box" >
-                {% for item in all_data %}
-                <div class="color_box category_{{item['category']}}" >
-                    <div class="color" id="{{ item['name'] }}" style="background-color: {{ item['rgb'] }}">
+    <div class="colors_box" >
+        {% for item in all_data %}
+        <div class="color_box category_{{item['category']}}" >
+            <div class="color" id="{{ item['name'] }}" style="background-color: {{ item['rgb'] }}">
                         
-                    </div>
-                    
-                </div>
-                
-                
-
-                {% endfor %}
-             
             </div>
+                    
+        </div>
+          
+        {% endfor %}
+             
+    </div>
            
             
 </main>
