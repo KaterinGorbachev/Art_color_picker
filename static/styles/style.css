@@ -272,6 +272,65 @@ li{
     
 }
 
+.footer-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.footer-btn-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    width: 70px;         /* button width */
+    height: 76px;        /* button height */
+    cursor: pointer;
+    color: #a90637;
+    border: 2px solid #a90637;
+    border-radius: 20px;
+    padding-top:5px;
+    transition: .3s;
+    
+    
+}
+
+.footer-btn-box svg.footer-btn {
+    width: auto; 
+    max-width: 100%;        
+    height: 100%;       
+    display: flex; 
+    justify-items: center;     
+    fill: currentColor;  
+    transition: fill 0.3s;
+    
+    
+}
+
+.footer-btn use{ 
+    width: 100%;
+    height: 100%;
+}
+
+.footer-btn-box p {
+    padding-bottom: 5px;
+    font-size: 10px;
+    text-align: start;
+    color: #a90637;
+}
+
+.footer-btn-box:hover {
+    color: #4F8FE6;  
+    border-color: #4F8FE6;
+}
+
+.footer-btn-box:hover p{ 
+    color: #4F8FE6;
+}
+
+
 .i_box{ 
     width: 60px;
     height: 60px;
@@ -531,7 +590,7 @@ li{
     
     width: 100vw;
     height: 10vh;
-    padding: 2rem;
+   
     
     
     
@@ -543,7 +602,7 @@ li{
 
 .mobile_footer{ 
     
-    width: 90vw;
+    width: 100vw;
 
     display: flex;
     flex-direction: row;
@@ -809,6 +868,7 @@ li{
    
     width: 100%;
     word-break: break-word;
+    padding: 0 5px;
 }
 
 .copy_color{ 
@@ -821,7 +881,7 @@ li{
     cursor: pointer;
     transition: 0.5s;
     text-align: left;
-    padding-top: 5px;
+    padding: 5px;
 }
 
 .copy_color:hover{ 
