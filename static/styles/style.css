@@ -202,11 +202,14 @@ li{
 .popup_box{ 
     position: fixed;
     z-index: 9998;
-    background: #5b9fff2c;
+    background: #579dff39;
     width: 100vw;
     height: 100vh;
     top: 0;
     left: 0;
+
+
+    
     
 }
 
@@ -377,7 +380,7 @@ li{
   padding: 1rem 3rem;
   padding-bottom: 4rem;
   position: fixed;
-  z-index: 700;
+  z-index: 699;
   top: 10vh;
   right: 0.5rem;
   background-color: white;
@@ -988,11 +991,11 @@ aside {
     justify-content: flex-start; /* top of the aside */
 }
 .filter-container {
-    width: 96vw;
+    width: 50vw;
     position: fixed;
     bottom: 15vh;             
     right: 0;           
-    z-index: 800;          
+    z-index: 699;          
     display: flex;
     flex-direction: column;
     align-items: flex-end; /* button aligns to the right */
@@ -1023,7 +1026,7 @@ aside {
     position: fixed;
     top: 10vh; /* button height + small margin */
     right: 0;  /* align dropdown to button’s right edge */
-    width: 100%;
+    width: 50vw;
     background-color: white;
     box-shadow: 0px 10px 10px -10px #4F8FE6;
     padding: 10px;
@@ -1034,7 +1037,7 @@ aside {
     display: block;
     margin-bottom: 5px;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: lighter;
     color: rgb(32, 32, 32);
 }
