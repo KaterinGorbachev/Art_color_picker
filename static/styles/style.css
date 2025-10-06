@@ -66,7 +66,7 @@ li{
 
 /*---Styles for error page end here --- */
 
-/*---Styles for homepage start here --- */
+/*---Styles for page start here --- */
 #homepage{ 
     display: flex;
     flex-direction: column;  
@@ -276,30 +276,32 @@ li{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 0;
     text-align: center;
+    height: 50px;
 }
 
 .footer-btn-box {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: end;
-    width: 70px;         /* button width */
-    height: 76px;        /* button height */
+    width: 80%;   
+    min-width: 90px;      /* button width */
+    height: 100%;        /* button height */
     cursor: pointer;
     color: #a90637;
     border: 2px solid #a90637;
     border-radius: 20px;
     padding-top:5px;
     transition: .3s;
-    
+    padding: 0 10px;
+    padding-top: 3px;
     
 }
 
 .footer-btn-box svg.footer-btn {
-    width: auto; 
-    max-width: 100%;        
+    width: 50px; 
+            
     height: 100%;       
     display: flex; 
     justify-items: center;     
@@ -317,7 +319,7 @@ li{
 
 .footer-btn-box p {
     padding-bottom: 5px;
-    font-size: 10px;
+    font-size: 14px;
     text-align: start;
     color: #a90637;
 }
@@ -333,8 +335,8 @@ li{
 
 
 .i_box{ 
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     object-fit: cover;
     overflow: hidden;
     cursor: pointer;
@@ -342,6 +344,28 @@ li{
     align-items: center;
     transition: .3s;
     
+}
+
+
+
+#home_button{ 
+    width: 70px;
+    height: 60px;
+    color: #a90637;
+    transition: .3s;
+    cursor: pointer;
+}
+
+
+#home_button svg{ 
+    width: 100%;
+    height: 100%;
+    
+    
+}
+#home_button:hover{ 
+    fill: #4F8FE6;
+    color: #4F8FE6;
 }
 
 .i_box img{ 
@@ -590,7 +614,7 @@ li{
     z-index: 1003;
     
     width: 100vw;
-    height: 10vh;
+    height: 12vh;
    
     
     
@@ -617,10 +641,9 @@ li{
 
 .footer_img{ 
     display: flex;
-    width: 90vw;
-    padding: 0 2rem;
+    width: 100vw;
     align-items: center;
-    justify-content: space-between;
+    gap: 1vw;
 
 }
 
