@@ -29,11 +29,19 @@
     {% include 'includes/icons.svg' %}
     
     <header id="page_menu">
-            <div class="i_box mobile" >
+            <!--<div class="i_box mobile" >
                 <img id="home_button" 
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" 
                 srcset="{{ url_for('static', filename='images/home.svg')}} 1100w" 
                 alt="Home">
+            </div>-->
+            <div id="home_button">
+                <svg>
+                    <title>home</title>
+                    <use href="#pagoda" >
+                                    
+                    </use>
+                </svg>
             </div>
             <div class="text_box pc" >
                 <h2 id="home_link" class="homepage_name">ART COLOR PICKER</h2>
@@ -171,7 +179,7 @@
                             <div class="footer-btn-box" id="random">
                                 <svg class="footer-btn">
                                 <title>random</title>
-                                <use href="#random" >
+                                <use href="#carp" >
                                     
                                 </use>
                             </svg>
