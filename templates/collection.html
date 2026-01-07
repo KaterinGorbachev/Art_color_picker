@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+
+{% block head_scripts %}
+<script src="{{ url_for('static', filename='scripts/copy_color.js')}}" defer></script>
+<script src="{{ url_for('static', filename='scripts/collection.js')}}" defer></script>
+
+
+
+{% endblock %}
+
+
+
+{% block title %}Collection{% endblock %}
+
+
+
+{% block content %}
+
+<main id="main_pages">
+            <h2>Your collection</h2>
+            <span id="col_empty"></span>
+            
+            
+            <div class="box"> 
+                {% for number, colors in palettes.items() %}
+
+                <div class="palette_grp">
+                    
+                    <div class="pallete_box">
+
+                        {% for color in colors %}
+                        <div class="color_info">
+                            <div  style="background-color: {{ color['rgb'] }}"></div>
+                            <button class="copy_color">{{ color['rgb'].upper() }}</button>
+                            <p>{{ color['name'] }}</p>
+                            
+                        
+                        
+                            
+                        
+                        </div>
+
+                        
+                        {% endfor %}
+
+                                    
+                    
+                    </div>
+                    <div class="color_buttons">
+                        <div id="{{ number }}" class="color_btn delete" role="img" aria-labelledby="discard_{{ loop.index }}">
+                            <svg class="color_btn">
+                                <title id="discard_{{ loop.index }}">Discard</title>
+                                <use href="#trash-can"></use>
+                            </svg>
+
+                        </div>
+                        
+                        <div class="color_btn expand-color" role="img" aria-labelledby="expand_{{ loop.index }}"> 
+                            <svg class="color_btn">
+                                <title id="expand_{{ loop.index }}">Full-screen</title>
+                                <use href="#expand-color-palette"></use>
+                            </svg>
+                        </div>
+
+                    </div>
+                    
+                
+
+
+                </div>
+
+            
+            {% endfor %}
+
+
+
+            </div>
+            
+            
+</main>
+
+
+{% endblock %}
+
+
+
+
+

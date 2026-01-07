@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+
+{% block head_scripts %}
+<script src="{{ url_for('static', filename='scripts/colors.js')}}" defer></script>
+<script src="{{ url_for('static', filename='scripts/copy_color.js')}}" defer></script>
+
+{% endblock %}
+
+
+
+{% block title %}Searched colors{% endblock %}
+
+
+
+{% block content %}
+
+<main id="main_pages">
+            <h2>Search results for your color</h2>
+            <span>
+                {% if all_data|length == 0 %}
+                    Oops! The color you entered isn’t in our collection  
+                    Click COLORS to discover more options.
+                {% elif all_data|length == 1 %} 
+                    Great news! We found matching color you might like   
+                {% else %}
+                    Great news! We found {{ all_data|length }} matching colors you might like
+                {% endif %}
+
+            </span>
+                     
+            <div class="colors_box" >
+                {% for item in all_data %}
+                <div class="color_box">
+                    <div class="color" id="{{ item['name'] }}" style="background-color: {{ item['rgb'] }}">
+                       
+                    </div>
+                    <button class="copy_color">{{ item['rgb'] }}</button>
+                    <p>{{ item['name'] }}</p>
+                    
+                </div>
+
+                {% endfor %}
+             
+            </div>
+
+            </div>         
+            
+</main>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

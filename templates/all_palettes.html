@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+
+{% block head_scripts %}
+<script src="{{ url_for('static', filename='scripts/copy_color.js')}}" defer></script>
+<script src="{{ url_for('static', filename='scripts/collect.js')}}" defer></script>
+
+
+{% endblock %}
+
+
+
+{% block title %}All palettes{% endblock %}
+
+
+
+{% block content %}
+
+<main id="main_pages">
+            <h2>All palettes</h2>
+            <span>Browse the complete library of palettes in one place</span>
+            
+           
+            <div class="box"> 
+                {% for number, colors in palettes.items() %}
+
+                <div class="palette_grp">
+                    <div class="pallete_box" >
+
+                        {% for color in colors %}
+                        <div class="color_info">
+                            <div  style="background-color: {{ color['rgb'] }}"></div>
+                            <button class="copy_color">{{ color['rgb'] }}</button>
+                            <p>{{ color['name'] }}</p>
+                                                      
+                        
+                        
+                        </div>
+
+                        
+                        {% endfor %}
+
+                                    
+                    
+                    </div>
+                    <div class="color_buttons">
+                        <div id="{{ number }}" class="color_btn like" role="img" aria-labelledby="save_{{ loop.index }}">
+                            <svg class="color_btn">
+                                <title id="save_{{ loop.index }}">Save</title>
+                                <use href="#heart-icon-outline">
+                                    
+                                </use>
+                            </svg>
+                            
+                        </div>
+                        <div class="color_btn not_visible">
+                            <svg class="color_btn" role="img" aria-labelledby="saved_{{ loop.index }}">
+                                <title id="saved_{{ loop.index }}">Discard</title>
+                                <use href="#heart-icon-filled"></use>
+                            </svg>
+                            
+                            
+                        </div>
+                        
+                        <div class="color_btn expand-color" role="img" aria-labelledby="expand_{{ loop.index }}"> 
+                            <svg class="color_btn">
+                                <title id="expand_{{ loop.index }}">Full-screen</title>
+                                <use href="#expand-color-palette"></use>
+                            </svg>
+                        </div>
+                        
+                        
+                    </div>
+                
+
+
+                </div>
+
+            
+                
+                
+             
+            {% endfor %}
+
+
+
+            </div>
+
+            
+            
+</main>
+
+
+
+{% endblock %}
+
+

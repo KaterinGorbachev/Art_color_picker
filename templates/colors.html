@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{% block head_scripts %}
+<script src="{{ url_for('static', filename='scripts/colors.js')}}" defer></script>
+<script src="{{ url_for('static', filename='scripts/filter_colors.js')}}" defer></script>
+
+{% endblock %}
+
+
+
+{% block title %}Colors{% endblock %}
+
+
+
+{% block content %}
+
+
+<main id="main_pages">
+    <aside>
+    <div class="filter-container" id="filter-container">
+        <button class="filter-button"> </button>
+        <div class="filter-dropdown" id="filterDropdown">
+            <h4>Filter by color category:</h4>
+            <label>
+                <input type="radio" name="category" value="all" checked onclick="filterColors('all')"> All
+            </label>
+            <label>
+                <input type="radio" name="category" value="category_1" onclick="filterColors('category_1')"> Red-violet
+            </label>
+            <label>
+                <input type="radio" name="category" value="category_2" onclick="filterColors('category_2')"> Yellow-red
+            </label>
+            <label>
+                <input type="radio" name="category" value="category_3" onclick="filterColors('category_3')"> Yellow-green
+            </label>
+            <label>
+                <input type="radio" name="category" value="category_4" onclick="filterColors('category_4')"> Blue-green
+            </label>
+            <label>
+                <input type="radio" name="category" value="category_5" onclick="filterColors('category_5')"> Blue-violet
+            </label>
+            <label>
+                <input type="radio" name="category" value="category_6" onclick="filterColors('category_6')"> White-black
+            </label>
+            
+        </div>
+    </div>
+    </aside>
+    <h2>Colors</h2>
+    <span>Select a color and see how it transforms into a full palette</span>
+                        
+    <div class="colors_box" >
+        {% for item in all_data %}
+        <div class="color_box category_{{item['category']}}" >
+            <div class="color" id="{{ item['name'] }}" style="background-color: {{ item['rgb'] }}">
+                        
+            </div>
+                    
+        </div>
+          
+        {% endfor %}
+             
+    </div>
+           
+            
+</main>
+
+
+{% endblock %}
+
+
+
+

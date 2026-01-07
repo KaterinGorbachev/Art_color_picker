@@ -1,0 +1,104 @@
+{% extends 'layout.html' %}
+
+
+
+{% block title %}About{% endblock %}
+
+
+
+{% block content %}
+
+<main id="main_pages">
+            <div class="about_first_part">
+
+
+                <div id="principle_img_box">
+                    <img src="{{url_for('static', filename='/images/gateofhell_sanzo_wada.jpg') }}" alt="picture from movie Jigokumon (Gate of Hell)">
+                    
+    
+                </div>
+                <div class="about_story japan_colors">
+                    <h3>Japan colors</h3>
+                    <p> Art Color Picker is a non-commercial educational project. Color palettes are inspired by <em>A Dictionary of Color Combinations</em> by Sanzo Wada (Seigensha, 2011) and are provided under the <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0 License</a>.
+                    </p>
+                    <br>
+                </div>
+
+                
+
+            </div>
+            
+
+            <div class="about_story">
+                
+                <h3>About Sanzo Wada</h3>
+                <p>Sanzo Wada (1883-1967) was born in Hyuogo, and began to study under Seiki Kuroda with the aim to become a painter in 1899. In 1901, he enrolled in the Tokyo Fine Arts School's Western painting program, from which graduated in 1904. After completing "Bokujo no banki" (1905), he became more widely known when his painting "Nampu" received the highest award in the Western painting category at the first Ministry of Education art exhibition (Bunten) in 1907. Since 1909 had started his European period. Before his return to Japan in 1915 he traveled across Asia and visited Java, Burma and India. He assumed office as a professor at the Tokyo Fine Arts School's Department of Design in 1937, when he also published Shikimei-cho, a collection of Japanese traditional colors and names. In 1954 he received an Academy Award for Costume Design for the movie "Jigokumon (Gate of Hell)", in 1955 this film was awarded the Palme d'Or grand prize at the Cannes Film Festival.</p>
+                <br>
+                
+                <h3>Principle of color combination and components</h3>
+                <p>Sanzo Wada basically distinguishes between combinations of similar, and those of contrasting colors/tones, which he explains by further deciding each type into five patterns. Components were adopted from the old European concepts of similar and contrasting colors. The definition of colors is already based on their hue, brightness (shades) and saturation (chromatically), as well as combinations of tones of different brightness and saturation. Wada considers the possibility of using this principle subjectively, based on personal taste, combining differently sized areas of different colors.        
+                </p>
+                <br>
+                <h3>Color combinations in the future art</h3>
+                <p>
+                    The great work made by Sanzo Wada in the exploration of colors influenced modern design, cinema and arts. Only take a look at the following gallery and you easily guess the country. 
+                </p>
+                <br>
+
+
+            </div>
+
+            <div class="galery_box">
+                <div class="grid-photo-img1">
+                    <img src="{{ url_for('static', filename='images/wave_personal (1).jpg') }}" alt="wave">
+                    <p>Pacific ocean wave. Around 1970. Personal archive</p>
+
+                </div>
+                
+                
+                
+                <div class="grid-photo-img2">
+                    <img src="{{ url_for('static', filename='/images/kanagawa_01.png') }}" alt="The Great Wave off the Coast of Kanagawa">
+                    <p>The Great Wave off the Coast of Kanagawa. 1831. Katsushika Hokusai</p>
+                </div>
+
+                <div class="grid-photo-img3">
+                    <img src="{{url_for('static', filename='/images/kimono.png') }}" alt="kimono">
+                    <p>Street photo</p>
+                </div>
+
+                <div class="grid-photo-img4">
+                    <img src="{{url_for('static', filename='/images/japon1970personal.png') }}" alt="Japon">
+                    <p>Japon. Around 1970. Personal archive</p>
+
+                    
+                </div>
+                
+                <div class="grid-photo-img5">
+                    <img src="{{url_for('static', filename='/images/dolls.png') }}" alt="Dolls">
+                    <p>Dolls. 2002. Takeshi Kitano</p>
+                </div>
+
+                
+
+                <div class="grid-photo-img6">
+                    <img src="{{url_for('static', filename='/images/totoro.jpg') }}" alt="Totoro bus stop">
+                    <p>My Neighbor Totoro. 1988. Hayao Miyazaki </p>
+                </div>
+
+                <div class="grid-photo-img7">
+                    <img src="{{url_for('static', filename='/images/vereshagin.png') }}" alt="Shintoistsky temple in Nikko Around 1904 Vasily Vereshchagin">
+                    <p>Shintoistsky temple in Nikko. Around 1904. Vasily Vereshchagin</p>
+                </div>
+
+                <div class="grid-photo-img8">
+                    <img src="{{url_for('static', filename='/images/vasabi.png') }}" alt="Wasabi">
+                    <p>Wasabi. 2001. Luc Besson</p>
+                </div>
+
+
+            </div>
+</main>
+
+{% endblock %}
+        
